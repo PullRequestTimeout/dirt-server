@@ -1,16 +1,18 @@
 {
   "name": "dirt-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "An ExpressJS backend for Dirt Surfer, a forecasting app for moutainbike trail conditions in British Columbia.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jacob Druery",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "node-cron": "^3.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
