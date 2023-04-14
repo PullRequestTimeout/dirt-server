@@ -1,32 +1,22 @@
 [
     {
-        "Trail name": "Aspen Loop",
-        "Description": "",
-        "Difficulty": "Easy",
-        "Composition": "Dirt",
-        "Weather Reactivity": "Low",
-        "Traffic Reactivity": "Moderate",
-        "Elevation": "800 m",
-        "Aspect": "South"
-    },
-    {
-        "Trail name": "Trail 2",
-        "Description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Difficulty": "Moderate",
-        "Composition": "Gravel",
-        "Weather Reactivity": "Moderate",
-        "Traffic Reactivity": "Moderate",
-        "Elevation": "1000 ft",
-        "Aspect": "South"
-    },
-    {
-        "Trail name": "Trail 3",
-        "Description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "Difficulty": "Hard",
-        "Composition": "Rocky",
-        "Weather Reactivity": "High",
-        "Traffic Reactivity": "High",
-        "Elevation": "1000 ft",
-        "Aspect": "South"
+        "trailName": "",
+        "description": "",
+        "difficulty": "",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Wooden features",
+            "Rock rolls",
+            "Drops",
+            "Jumps"
+        ],
+        "weatherReactivity": "",
+        "traffic": "Low",
+        "elevation": "",
+        "aspect": "",
+        "trailType": "",
+        "treeCoverage": ""
     }
 ]
