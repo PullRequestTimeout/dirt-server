@@ -2,7 +2,7 @@
     {
         "trailName": "Drake's",
         "description": "Drake's is a flowy singletrack climbing trail primarily used to access more trails in the Malde Creek area of Rossland. Relatively easy in terms of climbing difficulty, there are also some sections of faster descent as you traverse across the side of Deer Park Hill.",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -17,7 +17,7 @@
     {
         "trailName": "Doukhobor Draw",
         "description": "Primarily used to connect Drake's to Tamarack to continue climbing up towards the trails in the Malde Creek area, this trail can be ridden as a faster flow trail all the way down to Patterson, or as a challenging climb back to Rossland in the reverse direction.",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -32,7 +32,7 @@
     {
         "trailName": "Tamarack",
         "description": "A long climb up to the top of Malde Creek FSR, Tamarack consists of a relatively consistent grade with plenty of switchbacks and several technical rock features until you reach a spectaclur vantage point looking back over the valley to Rossland.",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -47,7 +47,7 @@
     {
         "trailName": "Super Mega Death/Awesome",
         "description": "A local favourite, SMD is accessed via climbing Tamarack or shuttle vehicle up Malde Creek FSR. There's a few sections of pedaling to begin with, it is primarily a fast downhill trail with technical rock features, wooden bridges, and drops.",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -64,7 +64,7 @@
     {
         "trailName": "Colonel Angus",
         "description": "Colonel Angus is a relatively new cross country trail connecting Tamarack to SMD. It can between either way between the two trails, and consists of moderately challenging climbing sections, rock features, and wooden bridges.",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -80,7 +80,7 @@
     {
         "trailName": "The Flume",
         "description": "The Flume is a very challenging downhill trail with many technical rock features and wooden drops, connected by high speed sections that remain loamy far longer than many other trails in the area due to the low traffic dense tree-coverage. Accessed from the top of the last challenging climb of Tamarack, there are often more difficult optional lines on features, and this trail is not for the faint of heart.",
-        "difficulty": "Double Black",
+        "difficulty": "4",
         "composition": [
             "Dirt",
             "Rocks",
@@ -98,7 +98,7 @@
     {
         "trailName": "Whiskey on the Rocks",
         "description": "WOTR is the more challenging, more technical big brother of the Rossland town classic, and links a string of very technical rock features together after an initial challenging climb. Ends directly next to the entrance to Whiskey to link the two together.",
-        "difficulty": "Double Black",
+        "difficulty": "4",
         "composition": [
             "Dirt",
             "Rocks",
@@ -115,7 +115,7 @@
     {
         "trailName": "Whiskey",
         "description": "A Rossland classic, this trail is usually accessed by shuttling a vehicle up Malde Creek FSR, but can also be accessed by pedalling up Tamarack. This trail connects wooden features, drop, and rock rolls together with sections of high-speed flowy singletrack, and is a very well-rounded trail for the competant rider, however due to high traffic can quickly end up in very dusty condition in the drier months.",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -134,7 +134,7 @@
     {
         "trailName": "Cherry Poppins",
         "description": "Cherry Poppins links a few very steep, technical features with loamy, surfy descent, to make one of the most iconic decsents in this very freeride-orientated town ",
-        "difficulty": "Double Black",
+        "difficulty": "4",
         "composition": [
             "Dirt",
             "Rocks",
@@ -153,7 +153,7 @@
     {
         "trailName": "Crown Point",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -171,7 +171,7 @@
     {
         "trailName": "Snake",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -189,7 +189,7 @@
     {
         "trailName": "Techno Grind",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -205,7 +205,7 @@
     {
         "trailName": "Stardust",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -223,7 +223,7 @@
     {
         "trailName": "Yellow Submarine",
         "description": "",
-        "difficulty": "Double Black",
+        "difficulty": "4",
         "composition": [
             "Dirt",
             "Rocks",
@@ -241,7 +241,7 @@
     {
         "trailName": "Ziggy's",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -260,7 +260,7 @@
     {
         "trailName": "Full Monte",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -279,7 +279,7 @@
     {
         "trailName": "Eddie J",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -295,7 +295,7 @@
     {
         "trailName": "Kootenay Columbia",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -310,7 +310,7 @@
     {
         "trailName": "Iron Colt",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -328,7 +328,7 @@
     {
         "trailName": "North Star",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -343,7 +343,7 @@
     {
         "trailName": "Pale Ale",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -361,7 +361,7 @@
     {
         "trailName": "Coffee Run",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -377,7 +377,7 @@
     {
         "trailName": "Green Door",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -394,7 +394,7 @@
     {
         "trailName": "KC Ridge",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -412,7 +412,7 @@
     {
         "trailName": "Milky Way",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -430,7 +430,7 @@
     {
         "trailName": "Roger's",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks"
@@ -444,7 +444,7 @@
     {
         "trailName": "Cemetery",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -474,7 +474,7 @@
     {
         "trailName": "Spring Cleaning",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -493,7 +493,7 @@
     {
         "trailName": "COG",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -509,7 +509,7 @@
     {
         "trailName": "Larch Ridge",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -525,7 +525,7 @@
     {
         "trailName": "Monticola",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -541,7 +541,7 @@
     {
         "trailName": "BS",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -559,7 +559,7 @@
     {
         "trailName": "Mxiɬp Xewílh (Cedar Trail)",
         "description": "",
-        "difficulty": "Green",
+        "difficulty": "1",
         "composition": [
             "Dirt",
             "Rocks"
@@ -573,7 +573,7 @@
     {
         "trailName": "Drifter",
         "description": "",
-        "difficulty": "Green",
+        "difficulty": "1",
         "composition": [
             "Dirt",
             "Rocks",
@@ -588,7 +588,7 @@
     {
         "trailName": "Moe's",
         "description": "",
-        "difficulty": "Green",
+        "difficulty": "1",
         "composition": [
             "Dirt",
             "Roots"
@@ -602,7 +602,7 @@
     {
         "trailName": "Miners",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -617,7 +617,7 @@
     {
         "trailName": "Larry's",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -632,7 +632,7 @@
     {
         "trailName": "Blue Elephant",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -649,7 +649,7 @@
     {
         "trailName": "Redtop",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -664,7 +664,7 @@
     {
         "trailName": "Redhead",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -683,7 +683,7 @@
     {
         "trailName": "Dreadhead",
         "description": "",
-        "difficulty": "Double Black",
+        "difficulty": "4",
         "composition": [
             "Dirt",
             "Rocks",
@@ -700,7 +700,7 @@
     {
         "trailName": "Pilgrim",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -715,7 +715,7 @@
     {
         "trailName": "Top Up",
         "description": "",
-        "difficulty": "Green",
+        "difficulty": "1",
         "composition": [
             "Dirt",
             "Rocks",
@@ -730,7 +730,7 @@
     {
         "trailName": "Top Down",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -746,7 +746,7 @@
     {
         "trailName": "Gold Digger",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -764,7 +764,7 @@
     {
         "trailName": "Paydirt",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -783,7 +783,7 @@
     {
         "trailName": "Dragon Tail",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -798,7 +798,7 @@
     {
         "trailName": "Railgrade",
         "description": "",
-        "difficulty": "Green",
+        "difficulty": "1",
         "composition": [
             "Dirt",
             "Rocks"
@@ -812,7 +812,7 @@
     {
         "trailName": "Bones",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
@@ -829,7 +829,7 @@
     {
         "trailName": "Louie Joe",
         "description": "",
-        "difficulty": "Green",
+        "difficulty": "1",
         "composition": [
             "Dirt",
             "Rocks",
@@ -845,7 +845,7 @@
     {
         "trailName": "Rubberhead",
         "description": "",
-        "difficulty": "Green",
+        "difficulty": "1",
         "composition": [
             "Dirt",
             "Rocks",
@@ -861,7 +861,7 @@
     {
         "trailName": "The Dewdney Trail",
         "description": "",
-        "difficulty": "Blue",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
@@ -877,7 +877,7 @@
     {
         "trailName": "Seven Summits",
         "description": "",
-        "difficulty": "Black",
+        "difficulty": "3",
         "composition": [
             "Dirt",
             "Rocks",
