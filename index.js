@@ -1,39 +1,45 @@
-import express from "express"
-const app = express()
+const express = require("express");
+const app = express();
+const PORT = 6969
 
-import mongoose from "mongoose"
-import dotenv from "dotenv"
+const fs = require("fs")
+const cors = require("cors")
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 dotenv.config()
 
-import { dbTrails, dbForecasts } from "./services/db.js"
+// Trails Model
+const Trails = require("./models/Trails")
 
-const PORT = 6969
+// DB collection endpoints 
+// import { dbTrails, dbForecasts } from "./services/db.js"
 
 // environment variables
 const OPEN_AI_KEY = process.env.OPEN_AI_KEY
-const MONGO_CONNECT = process.env.MONGO_CONNECT
+const MONGO_TRAILS = process.env.MONGO_TRAILS
 
-// local trail data, still needs to be completed and pushed to DB
-// const rosslandTrails = require("./trails/rossland-trails.json")
-// const trailTrails = require("./trails/trail-trails.json")
-// const castlegarTrails = require("./trails/castlegar-trails.json")
-
-
+// API home. Maybe should return the readme file.
 app.get("/", (req, res) => {
-    res.sendStatus(200).send(console.log("Welcome to Dirt Server. Please use appropriate location routing to recieve JSON data."))
+    res.sendStatus(200)
+    .send(console.log("Welcome to Dirt Server. Please use appropriate location routing to recieve JSON data."))
+    .sendFile(fs.readFileSync("README.md"))
 })
+ 
+mongoose.connect(MONGO_TRAILS).then(() => console.log("Trails database connected 👍"))
 
-mongoose.connect(MONGO_CONNECT)
+const data = JSON.parse(fs.readFileSync('./trails/trail-trails.json', 'utf-8'))
 
-app.get("/trails", (req, res) => {
+const sendJSONtoMongo = async () => {
     try {
-        const rosslandTrails = dbTrails.collection("rossland")
-        console.log(rosslandTrails)
+        await Trails.create(data);
+        console.log("Data transfer success ✅")
     } catch (err) {
-        console.log(err)
+        console.log("Error:", err)
     }
-})
+}
+
+sendJSONtoMongo()
 
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}/, nice.`)
+    console.log(`Server running on http://localhost:${PORT}/. Niiiiice.`)
 })
