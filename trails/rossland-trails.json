@@ -12,7 +12,8 @@
         "traffic": "Moderate",
         "elevation": "950",
         "aspect": "North",
-        "trailType": "Climb"
+        "trailType": "Climb",
+        "treeCoverage": "High"
     },
     {
         "trailName": "Doukhobor Draw",
@@ -27,7 +28,8 @@
         "traffic": "Moderate",
         "elevation": "1050",
         "aspect": "East",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Tamarack",
@@ -42,7 +44,8 @@
         "traffic": "Moderate",
         "elevation": "1050",
         "aspect": "North",
-        "trailType": "Climb"
+        "trailType": "Climb",
+        "treeCoverage": "High"
     },
     {
         "trailName": "Super Mega Death/Awesome",
@@ -59,7 +62,8 @@
         "traffic": "Moderate",
         "elevation": "1200",
         "aspect": "West",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "High"
     },
     {
         "trailName": "Colonel Angus",
@@ -75,7 +79,8 @@
         "traffic": "Low",
         "elevation": "1200",
         "aspect": "West",
-        "trailType": "XC"
+        "trailType": "XC",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "The Flume",
@@ -93,7 +98,8 @@
         "traffic": "Low",
         "elevation": "1300",
         "aspect": "West",
-        "trailType": "Tech"
+        "trailType": "Tech",
+        "treeCoverage": "High"
     },
     {
         "trailName": "Whiskey on the Rocks",
@@ -110,7 +116,8 @@
         "traffic": "Low",
         "elevation": "1225",
         "aspect": "North",
-        "trailType": "Tech"
+        "trailType": "Tech",
+        "treeCoverage": "Low"
     },
     {
         "trailName": "Whiskey",
@@ -129,7 +136,8 @@
         "traffic": "High",
         "elevation": "1150",
         "aspect": "West",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Cherry Poppins",
@@ -148,7 +156,8 @@
         "traffic": "Low",
         "elevation": "1200",
         "aspect": "North",
-        "trailType": "Tech"
+        "trailType": "Tech",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Crown Point",
@@ -166,7 +175,8 @@
         "traffic": "Low",
         "elevation": "1200",
         "aspect": "North",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Snake",
@@ -184,7 +194,8 @@
         "traffic": "Low",
         "elevation": "1250",
         "aspect": "South",
-        "trailType": "Tech"
+        "trailType": "Tech",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Techno Grind",
@@ -200,7 +211,8 @@
         "traffic": "Moderate",
         "elevation": "1250",
         "aspect": "North",
-        "trailType": "XC"
+        "trailType": "XC",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Stardust",
@@ -218,7 +230,8 @@
         "traffic": "Low",
         "elevation": "1200",
         "aspect": "East",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Yellow Submarine",
@@ -236,7 +249,8 @@
         "traffic": "Low",
         "elevation": "1250",
         "aspect": "West",
-        "trailType": "Tech"
+        "trailType": "Tech",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Ziggy's",
@@ -255,7 +269,8 @@
         "traffic": "Low",
         "elevation": "1250",
         "aspect": "South",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Full Monte",
@@ -274,7 +289,8 @@
         "traffic": "Low",
         "elevation": "1225",
         "aspect": "East",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Eddie J",
@@ -290,7 +306,8 @@
         "traffic": "High",
         "elevation": "1250",
         "aspect": "South",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "High"
     },
     {
         "trailName": "Kootenay Columbia",
@@ -305,7 +322,8 @@
         "traffic": "High",
         "elevation": "1200",
         "aspect": "South",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "High"
     },
     {
         "trailName": "Iron Colt",
@@ -323,7 +341,8 @@
         "traffic": "Low",
         "elevation": "1150",
         "aspect": "South",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "North Star",
@@ -338,7 +357,8 @@
         "traffic": "Low",
         "elevation": "1150",
         "aspect": "East",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Pale Ale",
@@ -356,7 +376,8 @@
         "traffic": "Moderate",
         "elevation": "1250",
         "aspect": "North",
-        "trailType": "Tech"
+        "trailType": "Tech",
+        "treeCoverage": "High"
     },
     {
         "trailName": "Coffee Run",
@@ -372,7 +393,8 @@
         "traffic": "Low",
         "elevation": "1050",
         "aspect": "North",
-        "trailType": "XC"
+        "trailType": "XC",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Green Door",
@@ -389,7 +411,8 @@
         "traffic": "High",
         "elevation": "1025",
         "aspect": "South",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "Low"
     },
     {
         "trailName": "KC Ridge",
@@ -407,7 +430,8 @@
         "traffic": "Low",
         "elevation": "1225",
         "aspect": "East",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Milky Way",
@@ -425,7 +449,8 @@
         "traffic": "High",
         "elevation": "1125",
         "aspect": "East",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Roger's",
@@ -439,7 +464,8 @@
         "traffic": "Low",
         "elevation": "975",
         "aspect": "East",
-        "trailType": "XC"
+        "trailType": "XC",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Cemetery",
@@ -455,7 +481,8 @@
         "traffic": "Moderate",
         "elevation": "1025",
         "aspect": "South",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Happy Valley",
@@ -469,7 +496,8 @@
         "traffic": "Low",
         "elevation": "975",
         "aspect": "South",
-        "trailType": "Climb"
+        "trailType": "Climb",
+        "treeCoverage": "Low"
     },
     {
         "trailName": "Spring Cleaning",
@@ -488,7 +516,8 @@
         "traffic": "Low",
         "elevation": "1025",
         "aspect": "South",
-        "trailType": "Tech"
+        "trailType": "Tech",
+        "treeCoverage": "Low"
     },
     {
         "trailName": "COG",
@@ -504,7 +533,8 @@
         "traffic": "Low",
         "elevation": "1375",
         "aspect": "East",
-        "trailType": "Climb"
+        "trailType": "Climb",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Larch Ridge",
@@ -520,7 +550,8 @@
         "traffic": "Low",
         "elevation": "1500",
         "aspect": "East",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Monticola",
@@ -536,7 +567,8 @@
         "traffic": "Moderate",
         "elevation": "1500",
         "aspect": "South",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "High"
     },
     {
         "trailName": "BS",
@@ -554,7 +586,8 @@
         "traffic": "Low",
         "elevation": "1475",
         "aspect": "South",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "High"
     },
     {
         "trailName": "Mxiɬp Xewílh (Cedar Trail)",
@@ -568,7 +601,8 @@
         "traffic": "Low",
         "elevation": "1550",
         "aspect": "East",
-        "trailType": "XC"
+        "trailType": "XC",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Drifter",
@@ -583,7 +617,8 @@
         "traffic": "Moderate",
         "elevation": "1140",
         "aspect": "West",
-        "trailType": "XC"
+        "trailType": "XC",
+        "treeCoverage": "High"
     },
     {
         "trailName": "Moe's",
@@ -597,7 +632,8 @@
         "traffic": "Moderate",
         "elevation": "1150",
         "aspect": "East",
-        "trailType": "XC"
+        "trailType": "XC",
+        "treeCoverage": "High"
     },
     {
         "trailName": "Miners",
@@ -612,7 +648,8 @@
         "traffic": "Moderate",
         "elevation": "1325",
         "aspect": "East",
-        "trailType": "Climb"
+        "trailType": "Climb",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Larry's",
@@ -627,7 +664,8 @@
         "traffic": "Moderate",
         "elevation": "1175",
         "aspect": "East",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Blue Elephant",
@@ -644,7 +682,8 @@
         "traffic": "High",
         "elevation": "1200",
         "aspect": "East",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Redtop",
@@ -659,7 +698,8 @@
         "traffic": "High",
         "elevation": "1600",
         "aspect": "South",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Redhead",
@@ -678,7 +718,8 @@
         "traffic": "Moderate",
         "elevation": "1550",
         "aspect": "East",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Dreadhead",
@@ -695,7 +736,8 @@
         "traffic": "Low",
         "elevation": "1575",
         "aspect": "North",
-        "trailType": "Tech"
+        "trailType": "Tech",
+        "treeCoverage": "Low"
     },
     {
         "trailName": "Pilgrim",
@@ -710,7 +752,8 @@
         "traffic": "High",
         "elevation": "1400",
         "aspect": "East",
-        "trailType": "Climb"
+        "trailType": "Climb",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Top Up",
@@ -725,7 +768,8 @@
         "traffic": "Low",
         "elevation": "1265",
         "aspect": "East",
-        "trailType": "XC"
+        "trailType": "XC",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Top Down",
@@ -741,7 +785,8 @@
         "traffic": "Low",
         "elevation": "1250",
         "aspect": "East",
-        "trailType": "XC"
+        "trailType": "XC",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Gold Digger",
@@ -759,7 +804,8 @@
         "traffic": "Moderate",
         "elevation": "1400",
         "aspect": "East",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Paydirt",
@@ -778,7 +824,8 @@
         "traffic": "Moderate",
         "elevation": "1350",
         "aspect": "East",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Dragon Tail",
@@ -793,7 +840,8 @@
         "traffic": "High",
         "elevation": "1350",
         "aspect": "East",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "Low"
     },
     {
         "trailName": "Railgrade",
@@ -807,7 +855,8 @@
         "traffic": "Low",
         "elevation": "975",
         "aspect": "West",
-        "trailType": "Climb"
+        "trailType": "Climb",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Bones",
@@ -824,7 +873,8 @@
         "traffic": "Low",
         "elevation": "850",
         "aspect": "North",
-        "trailType": "Flow"
+        "trailType": "Flow",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Louie Joe",
@@ -840,7 +890,8 @@
         "traffic": "Moderate",
         "elevation": "950",
         "aspect": "East",
-        "trailType": "Climb"
+        "trailType": "Climb",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Rubberhead",
@@ -856,7 +907,8 @@
         "traffic": "Low",
         "elevation": "875",
         "aspect": "East",
-        "trailType": "XC"
+        "trailType": "XC",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "The Dewdney Trail",
@@ -872,7 +924,8 @@
         "traffic": "Low",
         "elevation": "",
         "aspect": "",
-        "trailType": ""
+        "trailType": "",
+        "treeCoverage": "Moderate"
     },
     {
         "trailName": "Seven Summits",
@@ -891,6 +944,7 @@
         "traffic": "Moderate",
         "elevation": "2200",
         "aspect": "North",
-        "trailType": "AM"
+        "trailType": "AM",
+        "treeCoverage": "Low"
     }
 ]

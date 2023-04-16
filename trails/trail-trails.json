@@ -1,22 +1,148 @@
 [
     {
-        "trailName": "",
+        "trailName": "Aspen Loop",
         "description": "",
-        "difficulty": "",
+        "difficulty": "1",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots"
+        ],
+        "weatherReactivity": "Low",
+        "traffic": "Low",
+        "elevation": "625",
+        "aspect": "East",
+        "trailType": "XC",
+        "treeCoverage": "Moderate"
+    },
+    {
+        "trailName": "Bluffs Loop",
+        "description": "",
+        "difficulty": "2",
         "composition": [
             "Dirt",
             "Rocks",
             "Roots",
-            "Wooden features",
-            "Rock rolls",
-            "Drops",
-            "Jumps"
+            "Rock rolls"
         ],
-        "weatherReactivity": "",
+        "weatherReactivity": "Moderate",
+        "traffic": "High",
+        "elevation": "725",
+        "aspect": "South",
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
+    },
+    {
+        "trailName": "Sunningdale",
+        "description": "",
+        "difficulty": "2",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots"
+        ],
+        "weatherReactivity": "Moderate",
+        "traffic": "High",
+        "elevation": "725",
+        "aspect": "South",
+        "trailType": "Flow",
+        "treeCoverage": "Low"
+    },
+    {
+        "trailName": "Rusty Chainsaw",
+        "description": "",
+        "difficulty": "3",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Rock rolls"
+        ],
+        "weatherReactivity": "Moderate",
         "traffic": "Low",
-        "elevation": "",
-        "aspect": "",
-        "trailType": "",
-        "treeCoverage": ""
+        "elevation": "825",
+        "aspect": "South",
+        "trailType": "AM",
+        "treeCoverage": "Low"
+    },
+    {
+        "trailName": "Crowebar",
+        "description": "",
+        "difficulty": "2",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots"
+        ],
+        "weatherReactivity": "Low",
+        "traffic": "Low",
+        "elevation": "575",
+        "aspect": "West",
+        "trailType": "Climb",
+        "treeCoverage": "Low"
+    },
+    {
+        "trailName": "Elder",
+        "description": "",
+        "difficulty": "1",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots"
+        ],
+        "weatherReactivity": "Low",
+        "traffic": "Low",
+        "elevation": "650",
+        "aspect": "North",
+        "trailType": "XC",
+        "treeCoverage": "Moderate"
+    },
+    {
+        "trailName": "Miral Heights",
+        "description": "",
+        "difficulty": "1",
+        "composition": [
+            "Dirt",
+            "Rocks"
+        ],
+        "weatherReactivity": "Low",
+        "traffic": "High",
+        "elevation": "625",
+        "aspect": "South",
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
+    },
+    {
+        "trailName": "Raven's Rock",
+        "description": "",
+        "difficulty": "2",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Wooden features"
+        ],
+        "weatherReactivity": "Moderate",
+        "traffic": "Low",
+        "elevation": "600",
+        "aspect": "South",
+        "trailType": "Flow",
+        "treeCoverage": "Moderate"
+    },
+    {
+        "trailName": "Columbia Trail",
+        "description": "",
+        "difficulty": "1",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots"
+        ],
+        "weatherReactivity": "Moderate",
+        "traffic": "Low",
+        "elevation": "450",
+        "aspect": "East",
+        "trailType": "XC",
+        "treeCoverage": "Moderate"
     }
 ]
