@@ -6,9 +6,9 @@ Trail data is primarily pulled from local maps and information, first-hand knowl
 
 ### JSON Key and Value Sets
 
-"trail-name" returns a string value of the grammatically correct name of the trail.
+"trailName" returns a string value of the grammatically correct name of the trail.
 
-"description" at this point is an empty string. This will either be hardcoded into the JSON over time, or programmatically generated into the app with the OpenAI API. Placeholder key for now.
+"description" returns a string describing the trail briefly. This will need to be fine-tuned to provide a worthwhile prompt from the OpenAI API.
 
 "difficulty" returns a number from 1 to 4, each symbolising one of the four accepted mountainbiking difficulty ratings in North America:
 - 1 translates to "Green", and is easiest or for beginners.
@@ -25,7 +25,10 @@ Trail data is primarily pulled from local maps and information, first-hand knowl
 - "Drops"
 - "Jumps"
 
-"weather-reactivity" is defined by the question "how challenging is the trail to ride after either a recent rain event, or no rain events for quite a while?" and "traffic" is defined by popularity and usage. Both return one of three values:
+"weatherReactivity" is defined by the question "how challenging is the trail to ride after either a recent rain event, or no rain events for quite a while?". 
+"traffic" is defined by popularity and usage.
+"treeCoverage" is defined by how mach shelter the trail receives from trees by the trail, dense trees provide more, open space and wider trails provide less. 
+All return one of three values:
 - "Low"
 - "Moderate"
 - "High"
@@ -38,7 +41,7 @@ Trail data is primarily pulled from local maps and information, first-hand knowl
 - "South"
 - "West"
 
-"trail-type" refers to the style of mountain bike riding that the trail primarily focuses on and returns one of the following values:
+"trailType" refers to the style of mountain bike riding that the trail primarily focuses on and returns one of the following values:
 - "XC" is cross-country.
 - "Flow" is more speed focused, often including smoother trail and jumps.
 - "Tech" is slower paced, often steeper, and involves technical features.
@@ -48,17 +51,18 @@ Trail data is primarily pulled from local maps and information, first-hand knowl
 An example trail object is as follows:
 
     {
-        "Trail name": "Drake's",
-        "Description": "",
-        "Difficulty": "Blue",
-        "Composition": [
+        "trailName": "Columbia Trail",
+        "description": "",
+        "difficulty": "1",
+        "composition": [
             "Dirt",
             "Rocks",
             "Roots"
         ],
-        "Weather Reactivity": "Low",
-        "Traffic": "Moderate",
-        "Elevation": "950",
-        "Aspect": "North",
-        "Trail type": "Climb"
+        "weatherReactivity": "Moderate",
+        "traffic": "Low",
+        "elevation": "450",
+        "aspect": "East",
+        "trailType": "XC",
+        "treeCoverage": "Moderate"
     }
