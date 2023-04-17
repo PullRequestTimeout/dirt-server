@@ -1,22 +1,32 @@
 # Dirt Server
 
+Dirt Server is the backend API for the Dirt Surfer app built with ExpressJS and MongoDB Atlas. 
+
+Two main tasks are performed by the server:
+
+1. Once daily, the server makes a series of calls to a weather API, one for each trail network location with data in the database. In the first version of the app this includes Rossland, Trail, and Castlegar in British Columbia. Each of the returned weather data objects are stored, then the server iterates through each of the three collections of trail data providing key influencing points, and makes calls to OpenAI's GPT API using the weather data as a system parameter for the model, with the intent of receiving back both a star rating and a short description of the expected conditions of the trail. This is then passed back into the database and used in the API's second function.
+
+2. The API offers an endpoint for each of the locations covered by the database, and these endpoints return two JSON objects; the first containing all the static trail data that is also used by the first function, and the second containing the AI generated forecast data. This can then be consumed by the client, the Dirt Surfer react app, to be displayed in customisable ways for the user.
+
 ## Trail Data
 
-Trail data is primarily pulled from local maps and information, first-hand knowledge, and [Trailforks](https://www.trailforks.com/). Each of the JSON files can be called with the fetch api to the src/trails  directory (this may be moved to an external api in the future purely for learning purposes), eg "fetch("./src/trails/rossland-trails.json")". Keys are in kebab case rather than camel case to denote that it is coming from JSON.
+Trail data is accessable via routing endpoints.
 
-### JSON Key and Value Sets
+Client can call /trails/location to receive both the static and dynamic trail data. 
 
-"trailName" returns a string value of the grammatically correct name of the trail.
+### JSON Key and Value Sets for Static Trail Data 
 
-"description" returns a string describing the trail briefly. This will need to be fine-tuned to provide a worthwhile prompt from the OpenAI API.
+**"trailName"** returns a string value of the grammatically correct name of the trail.
 
-"difficulty" returns a number from 1 to 4, each symbolising one of the four accepted mountainbiking difficulty ratings in North America:
+**"description"** returns a string describing the trail briefly. This will need to be fine-tuned to provide a worthwhile prompt from the OpenAI API.
+
+**"difficulty"** returns a number from 1 to 4, each symbolising one of the four accepted mountainbiking difficulty ratings in North America:
 - 1 translates to "Green", and is easiest or for beginners.
 - 2 translates to "Blue", and is intermediate.
 - 3 translates to "Black", and is advanced.
 - 4 translates to "Double Black", and is very advanced.
 
-"composition" returns an array and can return any of the following values:
+**"composition"** returns an array and can return any of the following values:
 - "Dirt"
 - "Rocks"
 - "Roots"
@@ -25,23 +35,26 @@ Trail data is primarily pulled from local maps and information, first-hand knowl
 - "Drops"
 - "Jumps"
 
-"weatherReactivity" is defined by the question "how challenging is the trail to ride after either a recent rain event, or no rain events for quite a while?". 
-"traffic" is defined by popularity and usage.
-"treeCoverage" is defined by how mach shelter the trail receives from trees by the trail, dense trees provide more, open space and wider trails provide less. 
+**"weatherReactivity"** is defined by the question "how challenging is the trail to ride after either a recent rain event, or no rain events for quite a while?". 
+
+**"traffic"** is defined by popularity and usage.
+
+**"treeCoverage"** is defined by how mach shelter the trail receives from trees by the trail, dense trees provide more, open space and wider 
+trails provide less. 
 All return one of three values:
 - "Low"
 - "Moderate"
 - "High"
 
-"elevation" refers to the highest elevation of the trail, and returns an integer value rounded to the nearest 25, denoting meters above sealevel.
+**"elevation"** refers to the highest elevation of the trail, and returns an integer value rounded to the nearest 25, denoting meters above sealevel.
 
-"aspect" refers to the side of the mountain that the trail primarly lies upon, and returns one of the four points on the compass:
+**"aspect"** refers to the side of the mountain that the trail primarly lies upon, and returns one of the four points on the compass:
 - "North"
 - "East"
 - "South"
 - "West"
 
-"trailType" refers to the style of mountain bike riding that the trail primarily focuses on and returns one of the following values:
+**"trailType"** refers to the style of mountain bike riding that the trail primarily focuses on and returns one of the following values:
 - "XC" is cross-country.
 - "Flow" is more speed focused, often including smoother trail and jumps.
 - "Tech" is slower paced, often steeper, and involves technical features.
@@ -66,3 +79,11 @@ An example trail object is as follows:
         "trailType": "XC",
         "treeCoverage": "Moderate"
     }
+
+### JSON Key and Value Sets for Dynamic Trail Data
+
+**"trailName"** is the main identifier of the trail.
+
+**"starRating"** is the numeric value from 1 to 5 given to signify a simplified expected condition of the trail.
+
+**"description"** is a string containing a short paragraph description of the expected condition of the trail.
