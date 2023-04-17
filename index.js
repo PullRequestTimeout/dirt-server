@@ -2,15 +2,20 @@ const express = require("express");
 const app = express();
 const PORT = 6969
 
-const fs = require("fs")
 const cors = require("cors")
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config()
 
+// To enamble localhost development, not sure if I need this in prod still
+app.use(cors())
+
 // Routes
 const updateRoute = require("./routes/update.js")
 app.use("/update", updateRoute)
+const trailsRoute = require("./routes/trails.js")
+app.use("/trails", trailsRoute)
+
 
 // environment variables
 const OPEN_AI_KEY = process.env.OPEN_AI_KEY
