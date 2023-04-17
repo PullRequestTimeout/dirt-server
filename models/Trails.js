@@ -42,4 +42,8 @@ const TrailsSchema = new Schema ({
     }
 }, {collection: "trail"});
 
-module.exports = mongoose.model('Trails', TrailsSchema);
+const TrailDB = mongoose.model("TrailDB", TrailsSchema, "trail");
+const RosslandDB = mongoose.model("RosslandDB", TrailsSchema, "rossland");
+const CastlegarDB = mongoose.model("CastlegarDB", TrailsSchema, "castlegar");
+
+module.exports = { TrailDB, RosslandDB, CastlegarDB }

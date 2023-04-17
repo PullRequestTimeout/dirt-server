@@ -487,7 +487,7 @@
     {
         "trailName": "Happy Valley",
         "description": "",
-        "difficulty": "",
+        "difficulty": "1",
         "composition": [
             "Dirt",
             "Roots"
@@ -922,9 +922,9 @@
         ],
         "weatherReactivity": "Moderate",
         "traffic": "Low",
-        "elevation": "",
-        "aspect": "",
-        "trailType": "",
+        "elevation": "1400",
+        "aspect": "West",
+        "trailType": "AM",
         "treeCoverage": "Moderate"
     },
     {
