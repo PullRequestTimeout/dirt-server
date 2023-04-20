@@ -1,21 +1,20 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const PORT = 6969
+const PORT = 6969;
 
-const cors = require("cors")
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-dotenv.config()
+import cors from "cors";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
-// To enamble localhost development, not sure if I need this in prod still
-app.use(cors())
+// To enable localhost development, not sure if I need this in prod still
+app.use(cors());
 
 // Routes
-const updateRoute = require("./routes/update.js")
-app.use("/update", updateRoute)
-const trailsRoute = require("./routes/trails.js")
-app.use("/trails", trailsRoute)
-
+import updateRoute from "./routes/update.js";
+app.use("/update", updateRoute);
+import trailsRoute from "./routes/trails.js";
+app.use("/trails", trailsRoute);
 
 // environment variables
 const OPEN_AI_KEY = process.env.OPEN_AI_KEY

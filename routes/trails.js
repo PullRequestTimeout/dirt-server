@@ -1,6 +1,6 @@
-const express = require("express");
-const router = express.Router()
-const Trails = require("../models/Trails")
+import express from "express";
+const router = express.Router();
+import Trails from "../models/Trails.js";
 
 router.get("/rossland", async (req, res) => {
     try {
@@ -29,4 +29,4 @@ router.get("/castlegar", async (req, res) => {
     }
 })
 
-module.exports = router;
+export default router;

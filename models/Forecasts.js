@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const ForecastsSchema = new Schema ({
@@ -16,4 +16,4 @@ const TrailDB = mongoose.model("TrailDB", ForecastsSchema, "trail");
 const RosslandDB = mongoose.model("RosslandDB", ForecastsSchema, "rossland");
 const CastlegarDB = mongoose.model("CastlegarDB", ForecastsSchema, "castlegar");
 
-module.exports = { TrailDB, RosslandDB, CastlegarDB }
+export default { TrailDB, RosslandDB, CastlegarDB };

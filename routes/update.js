@@ -1,9 +1,9 @@
-const express = require("express");
-const router = express.Router()
-const fs = require("fs")
+import express from "express";
+const router = express.Router();
+import fs from "fs";
 
 // Trails Model
-const Trails = require("../models/Trails")
+import Trails from "../models/Trails.js";
 
 router.get("/", (req, res) => {
     let json;
@@ -42,4 +42,4 @@ router.get("/", (req, res) => {
     sendJSONtoMongo()
 })
 
-module.exports = router;
+export default router;
