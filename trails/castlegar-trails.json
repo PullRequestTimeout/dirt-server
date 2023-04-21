@@ -1,0 +1,206 @@
+[
+    {
+        "trailName": "Bloody Merry",
+        "description": "",
+        "difficulty": "3",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Wooden features",
+            "Rock rolls"
+        ],
+        "weatherReactivity": "High",
+        "traffic": "Moderate",
+        "elevation": "975",
+        "aspect": "East",
+        "trailType": "Tech",
+        "treeCoverage": "Moderate"
+    },
+    {
+        "trailName": "Captain Kangaroo",
+        "description": "",
+        "difficulty": "3",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Wooden features",
+            "Rock rolls",
+            "Drops"
+        ],
+        "weatherReactivity": "High",
+        "traffic": "Moderate",
+        "elevation": "1450",
+        "aspect": "East",
+        "trailType": "AM",
+        "treeCoverage": "Low"
+    },
+    {
+        "trailName": "Crazy Merry",
+        "description": "",
+        "difficulty": "4",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Wooden features",
+            "Drops",
+            "Jumps"
+        ],
+        "weatherReactivity": "Moderate",
+        "traffic": "Low",
+        "elevation": "975",
+        "aspect": "East",
+        "trailType": "Flow",
+        "treeCoverage": "High"
+    },
+    {
+        "trailName": "Hail Merry",
+        "description": "",
+        "difficulty": "2",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Wooden features",
+            "Rock rolls",
+            "Drops",
+            "Jumps"
+        ],
+        "weatherReactivity": "",
+        "traffic": "High",
+        "elevation": "1000",
+        "aspect": "East",
+        "trailType": "AM",
+        "treeCoverage": "High"
+    },
+    {
+        "trailName": "Merry Go Round",
+        "description": "",
+        "difficulty": "2",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Wooden features"
+        ],
+        "weatherReactivity": "Low",
+        "traffic": "High",
+        "elevation": "1000",
+        "aspect": "East",
+        "trailType": "Climb",
+        "treeCoverage": "Moderate"
+    },
+    {
+        "trailName": "Mr. Green Jeans",
+        "description": "",
+        "difficulty": "2",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Wooden features"
+        ],
+        "weatherReactivity": "Low",
+        "traffic": "Moderate",
+        "elevation": "1450",
+        "aspect": "East",
+        "trailType": "Climb",
+        "treeCoverage": "Low"
+    },
+    {
+        "trailName": "Wings for Merry",
+        "description": "",
+        "difficulty": "3",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Wooden features",
+            "Rock rolls",
+            "Jumps"
+        ],
+        "weatherReactivity": "Moderate",
+        "traffic": "Moderate",
+        "elevation": "975",
+        "aspect": "East",
+        "trailType": "Flow",
+        "treeCoverage": "Moderate"
+    },
+    {
+        "trailName": "Dirty Dreams",
+        "description": "",
+        "difficulty": "3",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Rock rolls",
+            "Drops",
+            "Jumps"
+        ],
+        "weatherReactivity": "Moderate",
+        "traffic": "High",
+        "elevation": "600",
+        "aspect": "South",
+        "trailType": "Flow",
+        "treeCoverage": "Moderate"
+    },
+    {
+        "trailName": "The Awakener",
+        "description": "",
+        "difficulty": "4",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Wooden features",
+            "Rock rolls",
+            "Drops",
+            "Jumps"
+        ],
+        "weatherReactivity": "High",
+        "traffic": "Low",
+        "elevation": "1500",
+        "aspect": "South",
+        "trailType": "AM",
+        "treeCoverage": "Moderate"
+    },
+    {
+        "trailName": "Dirty Dreams Climb Trail",
+        "description": "",
+        "difficulty": "2",
+        "composition": [
+            "Dirt",
+            "Roots",
+            "Wooden features"
+        ],
+        "weatherReactivity": "Low",
+        "traffic": "Low",
+        "elevation": "600",
+        "aspect": "South",
+        "trailType": "Climb",
+        "treeCoverage": "Moderate"
+    },
+    {
+        "trailName": "Grandiflorum",
+        "description": "",
+        "difficulty": "3",
+        "composition": [
+            "Dirt",
+            "Rocks",
+            "Roots",
+            "Wooden features",
+            "Rock rolls",
+            "Drops",
+            "Jumps"
+        ],
+        "weatherReactivity": "High",
+        "traffic": "High",
+        "elevation": "1400",
+        "aspect": "South",
+        "trailType": "AM",
+        "treeCoverage": "Low"
+    }
+]
