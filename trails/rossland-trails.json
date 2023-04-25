@@ -741,7 +741,7 @@
     },
     {
         "trailName": "Pilgrim",
-        "description": "",
+        "description": "Pilgrim is a wide, flowy, machine-built climbing trail located underneath Silverload Chair on Red Mountain Resort. The trail was designed with e-bikes in mind, and serves as an access trail to the top of the jumpline, Dragon's Tail, which was built in the same year. The first section of the trail features a punchy grade with plenty of switchbacks, allowing riders to quickly gain elevation to the lower portion of the jumpline. However, the upper portion of the trail maintains a more mellow grade until the final stretch, which is a short, tighter portion of singletrack that ends near the top of the resort chairlift. It's worth noting that the trail can become quite dusty during drier months due to its aspect and high amount of traffic.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -757,7 +757,7 @@
     },
     {
         "trailName": "Top Up",
-        "description": "",
+        "description": "Top Up is a multi-use trail that connects the bottom of Gold Digger to the midway point of the Pilgrim climb. It's designed to be a beginner trail and is well-maintained. The trail is part of an effort to expand the Red Mountain trail network towards Topping Creek.",
         "difficulty": "1",
         "composition": [
             "Dirt",
@@ -773,7 +773,7 @@
     },
     {
         "trailName": "Top Down",
-        "description": "",
+        "description": "Creating a shorter loop with Top Up than Gold Digger, Top Down offers a fun flowy downhill ride with some manageable rock features.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -790,7 +790,7 @@
     },
     {
         "trailName": "Gold Digger",
-        "description": "",
+        "description": "Accessed via a short climb from the top of Pilgrim, Gold Digger flows down through the gully that Topping Creek lies in, with some moderately technical rock features and crossing the creek several times with wooden bridges. It is a great way to extend a Dragon's Tail lap.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -809,7 +809,7 @@
     },
     {
         "trailName": "Paydirt",
-        "description": "",
+        "description": "Paydirt is mostly a fast and flowy trail, featuring several wooden skinnies, sections of tabletop jumps originally built for the short-lived bike park on Red, and a set of rock rolls with varying degrees of difficulty. The trail connects to the bottom of the more recently constructed Dragon's Tail.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -829,7 +829,7 @@
     },
     {
         "trailName": "Dragon Tail",
-        "description": "",
+        "description": "Constructed in 2020, Dragon's Tail is a machine-built jump line, making a welcome addition to a town crisscrossed with technical singletrack. The upper portion of the trail is rated more difficult than the lower section due to higher speed and bigger jumps, but all jumps on the trail are tabletops and can be taken as aggressively or conservatively as the rider wishes. There are several sections of the trail with drainage problems, but each season sees improvements due to work from the Rossland trail society. The trail can become very dusty in the hotter months of the year due to high traffic.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -845,7 +845,7 @@
     },
     {
         "trailName": "Railgrade",
-        "description": "",
+        "description": "The Railgrade is a remnant of Rossland's gold rush past, having provided rail utility to mines in the area many years ago. Nowadays, the trail serves as a consistently graded climb back to Rossland from Warfield, and also provides access to and from many trails in the lower portion of town.",
         "difficulty": "1",
         "composition": [
             "Dirt",
@@ -860,7 +860,7 @@
     },
     {
         "trailName": "Bones",
-        "description": "",
+        "description": "Bones is a short, fast trail often used as a way to extend Cemetery to lower elevations in the early season. It is an older, decommissioned trail located on the lower side of highway 3B. While it previously had some wooden features, it is now primarily flowy singletrack with a couple of more technical rock features.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -878,7 +878,7 @@
     },
     {
         "trailName": "Louie Joe",
-        "description": "",
+        "description": "This mixed-use doubletrack trail is located in Lower Rossland and is often used for climbing back up to town from the bottom section. It features a wooden bridge over a picturesque creek in the Spring and early Summer.",
         "difficulty": "1",
         "composition": [
             "Dirt",
@@ -895,7 +895,7 @@
     },
     {
         "trailName": "Rubberhead",
-        "description": "",
+        "description": "One of the oldest mountain bike trails in Rossland, this trail was originally part of the Rubberhead Bike Festival in the 80s and 90s. These days, Rubberhead is primarily used as a connection between several trails in the lower portion of town.",
         "difficulty": "1",
         "composition": [
             "Dirt",
@@ -912,7 +912,7 @@
     },
     {
         "trailName": "The Dewdney Trail",
-        "description": "",
+        "description": "The Dewdney was originally built over 150 years for hoseback transport over the pass, todays version of the trail consists of fast, rough descent from the old Cascade Highway down to Patternson. Several sections of high-speed flow connect some rooty, techy parts of the trail, and some gap jumps over water culverts were recently added. The trail is commonly shuttled from the Cascade, or used as a final segemt of the Seven Summits epic. The trail can get very dusty and worn in the hotter months of the year.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -929,7 +929,7 @@
     },
     {
         "trailName": "Seven Summits",
-        "description": "",
+        "description": "The Rossland trail network's crowning jewel, Summit Summits is an epic alpine adventure and a serious test of physical endurance. The trail starts at the summit of Strawberry Pass, crosses seven of the peaks on the Rossland Range, and ends near the Canadian/US border town of Patterson. The trail entails many grueling, technical ascents, breathtaking views of the spectacular scenery, and meticulously maintained singletrack through alpine meadons and across rock slides. The 32km trail includes more than 1100m of elevation gain, and often takes intermediate to advanced riders up to 6 hours to complete, despite the lack of any jumps or challenging features, and riders should be prepared for a very challenging experience in the remote portion of the Kootenays backcountry. There is a filtered water refill station 2/3 of the way, and the option to exit early down the Old Glory trail if necessity dictates. Open from early July until the first snowfall of the winter, the high elevation of the Seven Summits trail often makes for cooler riding in the hotter times of the year.",
         "difficulty": "3",
         "composition": [
             "Dirt",
