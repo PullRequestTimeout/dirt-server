@@ -1,7 +1,7 @@
 [
     {
         "trailName": "Aspen Loop",
-        "description": "",
+        "description": "This meandering out-and-back trail is a great beginner-friendly option within the Bluffs trail network, making it an ideal option for those looking for an easy ride. The trail provides a great opportunity to extend a Bluffs circuit or as a standalone ride for those new to mountain biking.",
         "difficulty": "1",
         "composition": [
             "Dirt",
@@ -17,7 +17,7 @@
     },
     {
         "trailName": "Bluffs Loop",
-        "description": "",
+        "description": "The Bluffs is a popular trail, especially earlier in the season, due to its low elevation and snow coverage. It provides a short, energetic climb up from Miral Heights to some spectacular views over the valley, followed by a rocky, technical descent back down the other side. The trail can also be ridden in reverse for a more challenging option and provides easy access to Sunningdale and Rusty Chainsaw. However, it can become very dusty and worn later in the summer due to the heat and high traffic.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -34,7 +34,7 @@
     },
     {
         "trailName": "Sunningdale",
-        "description": "",
+        "description": "This flowy trail provides a high-speed descent from the Bluffs viewpoint, following the steep and exposed side of the valley, offering exceptional views. However, there is very little margin for error on some corners. The trail includes several switchbacks that quickly lose elevation before leading to one last fast section with several rollers and jumps alongside Sandpit Road.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -50,7 +50,7 @@
     },
     {
         "trailName": "Rusty Chainsaw",
-        "description": "",
+        "description": "This trail offers a challenging, technical climb up from the Bluffs Loop and is a more advanced addition for those looking to gain more elevation in the early season. The short descent back down to the main trail from the top is mostly flow, with a few tricky moves.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -67,7 +67,7 @@
     },
     {
         "trailName": "Crowebar",
-        "description": "",
+        "description": "Crowebar is a recent addition to the Bluffs trail network, built with the help of volunteers from J.L. Crowe Secondary School. It provides an alternate method of accessing the trail network from the school, with a more friendly grade than Raven's Rock.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -82,24 +82,8 @@
         "treeCoverage": "Low"
     },
     {
-        "trailName": "Elder",
-        "description": "",
-        "difficulty": "1",
-        "composition": [
-            "Dirt",
-            "Rocks",
-            "Roots"
-        ],
-        "weatherReactivity": "Low",
-        "traffic": "Low",
-        "elevation": "650",
-        "aspect": "North",
-        "trailType": "XC",
-        "treeCoverage": "Moderate"
-    },
-    {
         "trailName": "Miral Heights",
-        "description": "",
+        "description": "Taking its name from the housing area where it starts, Miral Height is mostly used as a double-track ascent to the higher trails in the Bluffs network.",
         "difficulty": "1",
         "composition": [
             "Dirt",
@@ -114,7 +98,7 @@
     },
     {
         "trailName": "Raven's Rock",
-        "description": "",
+        "description": "Raven's Rock connects the Miral Height trail and the Bluffs network to Crowe High School and the hospital. While it provides a direct route, the trail is very steep in some sections and it is not advised to use it as a climbing trail.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -131,7 +115,7 @@
     },
     {
         "trailName": "Columbia Trail",
-        "description": "",
+        "description": "The Columbia Trail provides excellent early-season cross-country riding along the banks of the Columbia River. As part of the Trans-Canada Trail, it is an old and raw trail that can be sandy in places, and includes a few creek crossings with some exposure to the river.",
         "difficulty": "1",
         "composition": [
             "Dirt",
