@@ -1,7 +1,7 @@
 [
     {
         "trailName": "Bloody Merry",
-        "description": "",
+        "description": "Steep, technical trail with a few lines requiring some guts and commitment. Can get loose and dusty in drier months.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -19,7 +19,7 @@
     },
     {
         "trailName": "Captain Kangaroo",
-        "description": "",
+        "description": "For experienced riders seeking a challenge, Captain Kangaroo offers a thrilling ride with various rock obstacles, wood features, and a steep forested section. Despite the long climb up Mr. Green Jeans trail required to reach it, the Captain is a must-ride trail that rewards with an unforgettable experience.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -38,7 +38,7 @@
     },
     {
         "trailName": "Crazy Merry",
-        "description": "",
+        "description": "This trail further showcases the hard work of the Castlegar trail society, and offers expert-level riders some challenging features to test their mettle on in the form of two massive step-ups. The rest of trail links some classic Merry Creek woodwork with high-speed flow.",
         "difficulty": "4",
         "composition": [
             "Dirt",
@@ -57,7 +57,7 @@
     },
     {
         "trailName": "Hail Merry",
-        "description": "",
+        "description": "Smooth flowy trail in the bottom section of the Merry Creek network, Hail Merry packs some interesting wood and rock features into this short, well-built intermediate trail.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -68,7 +68,7 @@
             "Drops",
             "Jumps"
         ],
-        "weatherReactivity": "",
+        "weatherReactivity": "Moderate",
         "traffic": "High",
         "elevation": "1000",
         "aspect": "East",
@@ -77,7 +77,7 @@
     },
     {
         "trailName": "Merry Go Round",
-        "description": "",
+        "description": "Merry Go Round is the main climbing trail that provides access to the lower portion of the Merry Creek network. The trail is an amazing showcase of the dedication and exceptional craftsmanship of the area's volunteer crew. It features intricate wooden bridges and some punchy switchbacks, and winds up through the other runs in the area, providing entertainment to keep your mind off the challenge of the climb.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -94,7 +94,7 @@
     },
     {
         "trailName": "Mr. Green Jeans",
-        "description": "",
+        "description": "Used as the primary access for Captain Kangaroo, this trail keeps a reasonable grade over the 500m of ascent to the summit. It is a long, challenging climb to the top, but well worth the rewarding descent of one the highest regarded trails in the Castleagr area.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -111,7 +111,7 @@
     },
     {
         "trailName": "Wings for Merry",
-        "description": "",
+        "description": "A more recent addition to Merry Creek, 'Wings' links some steeper, challenging sections of the trail with fast, playful flow trail. More of Castlegar's signature new school woodwork makes an appearance, as well as some granite slabs, and bike-park-quality berms to keep you flowing through this trail with speed.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -130,7 +130,7 @@
     },
     {
         "trailName": "Dirty Dreams",
-        "description": "",
+        "description": "As one of the first trails in Castlegar to open for the year, this steep, fast jumpline is a town classic and sees a lot of traffic in the early season, as well as a way to round out a top-to-bottom run of The Awakener. Due to the high traffic and southern aspect, Dirty Dreams can become dusty quickly in the year, but serves as a great warm-up for the mountain bike season after winter.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -149,7 +149,7 @@
     },
     {
         "trailName": "The Awakener",
-        "description": "",
+        "description": "An infamously challenging trail in the West Kootenays region, this expert-only trail is one of the oldest in the area and includes some of the biggest features that the area has to offer. Known for its technical wood skinnies, impressive drops, and huge gap jumps, The Awakener is a must-ride for all advanced riders looking to push the limits.",
         "difficulty": "4",
         "composition": [
             "Dirt",
@@ -169,7 +169,7 @@
     },
     {
         "trailName": "Dirty Dreams Climb Trail",
-        "description": "",
+        "description": "A new addition to the Rialto trail network in Castlegar, Dirty Dreams Climb offers an alternate access method to shuttling up the area's forest service road. The climb switchbacks and sidehills its way up the steep ascent, passing picturesque waterfalls and well-crafted bridges. It can be used to access the Dirty Dream descent or linked to the new climb up to Lower Awakener.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -185,7 +185,7 @@
     },
     {
         "trailName": "Grandiflorum",
-        "description": "",
+        "description": "Affectionately referred to as 'Grand' in the area, this popular downhill trail offers a long descent from the Rialto Creek forest service road. Packed full of high-speed flow, challenging wooden features, and technical rocky descents, Grand also features a large, exposed gap drop that is not for the faint-hearted. The trail can become very loose and dusty in the steeper sections during the hotter months of the year.",
         "difficulty": "3",
         "composition": [
             "Dirt",
