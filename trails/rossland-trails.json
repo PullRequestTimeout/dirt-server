@@ -1,7 +1,7 @@
 [
     {
         "trailName": "Drake's",
-        "description": "Drake's is a flowy singletrack climbing trail primarily used to access more trails in the Malde Creek area of Rossland. Relatively easy in terms of climbing difficulty, there are also some sections of faster descent as you traverse across the side of Deer Park Hill.",
+        "description": "Drake's is a flowy singletrack climbing trail primarily used to access more trails in the Malde Creek area of Rossland. It is relatively easy in terms of climbing difficulty, but there are also some sections of faster descent as you traverse across the side of Deer Park Hill.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -17,7 +17,7 @@
     },
     {
         "trailName": "Doukhobor Draw",
-        "description": "Primarily used to connect Drake's to Tamarack to continue climbing up towards the trails in the Malde Creek area, this trail can be ridden as a faster flow trail all the way down to Patterson, or as a challenging climb back to Rossland in the reverse direction.",
+        "description": "This trail is primarily used to connect Drake's to Tamarack and continue climbing up towards the trails in the Malde Creek area. However, it can also be ridden as a faster flow trail all the way down to Patterson or as a challenging climb back to Rossland in the reverse direction.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -33,7 +33,7 @@
     },
     {
         "trailName": "Tamarack",
-        "description": "A long climb up to the top of Malde Creek FSR, Tamarack consists of a relatively consistent grade with plenty of switchbacks and several technical rock features until you reach a spectaclur vantage point looking back over the valley to Rossland.",
+        "description": "Tamarack is a long climb up to the top of Malde Creek FSR, featuring a relatively consistent grade with plenty of switchbacks and several technical rock features. The trail culminates at a spectacular vantage point that offers a view of the valley and Rossland.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -49,7 +49,7 @@
     },
     {
         "trailName": "Super Mega Death/Awesome",
-        "description": "A local favourite, SMD is accessed via climbing Tamarack or shuttle vehicle up Malde Creek FSR. There's a few sections of pedaling to begin with, it is primarily a fast downhill trail with technical rock features, wooden bridges, and drops.",
+        "description": "SMD is a local favourite and is accessed via the climb up Tamarack or by a shuttle vehicle up Malde Creek FSR. The trail starts with a few sections of pedaling before transitioning into a fast downhill trail with technical rock features, wooden bridges, and drops.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -67,7 +67,7 @@
     },
     {
         "trailName": "Colonel Angus",
-        "description": "Colonel Angus is a relatively new cross country trail connecting Tamarack to SMD. It can between either way between the two trails, and consists of moderately challenging climbing sections, rock features, and wooden bridges.",
+        "description": "Colonel Angus is a relatively new cross-country trail that connects Tamarack to SMD. It can be ridden in either direction between the two trails and consists of moderately challenging climbing sections, rock features, and wooden bridges.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -84,7 +84,7 @@
     },
     {
         "trailName": "The Flume",
-        "description": "The Flume is a very challenging downhill trail with many technical rock features and wooden drops, connected by high speed sections that remain loamy far longer than many other trails in the area due to the low traffic dense tree-coverage. Accessed from the top of the last challenging climb of Tamarack, there are often more difficult optional lines on features, and this trail is not for the faint of heart.",
+        "description": "The Flume is a very challenging downhill trail with many technical rock features and wooden drops. It is connected by high-speed sections that remain loamy far longer than many other trails in the area due to the low traffic and dense tree-coverage. The trail is accessed from the top of the last challenging climb of Tamarack, and there are often more difficult optional lines on features. This trail is not for the faint of heart.",
         "difficulty": "4",
         "composition": [
             "Dirt",
@@ -103,7 +103,7 @@
     },
     {
         "trailName": "Whiskey on the Rocks",
-        "description": "WOTR is the more challenging, more technical big brother of the Rossland town classic, and links a string of very technical rock features together after an initial challenging climb. Ends directly next to the entrance to Whiskey to link the two together.",
+        "description": "WOTR is the more challenging, more technical big brother of the Rossland town classic. It links a string of very technical rock features together after an initial challenging climb and ends directly next to the entrance to Whiskey to link the two together.",
         "difficulty": "4",
         "composition": [
             "Dirt",
@@ -121,7 +121,7 @@
     },
     {
         "trailName": "Whiskey",
-        "description": "A Rossland classic, this trail is usually accessed by shuttling a vehicle up Malde Creek FSR, but can also be accessed by pedalling up Tamarack. This trail connects wooden features, drop, and rock rolls together with sections of high-speed flowy singletrack, and is a very well-rounded trail for the competant rider, however due to high traffic can quickly end up in very dusty condition in the drier months.",
+        "description": "A Rossland classic, this trail is usually accessed by shuttling a vehicle up Malde Creek FSR, but can also be accessed by pedaling up Tamarack. The trail connects wooden features, drops, and rock rolls together with sections of high-speed, flowy singletrack. It is a very well-rounded trail for the competent rider. However, due to high traffic, it can quickly become very dusty in the drier months.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -141,7 +141,7 @@
     },
     {
         "trailName": "Cherry Poppins",
-        "description": "Cherry Poppins links a few very steep, technical features with loamy, surfy descent, to make one of the most iconic decsents in this very freeride-orientated town ",
+        "description": "Cherry Poppins is an expert-level trail that links a few very steep, technical features with a loamy, surfy descent, making it one of the most iconic descents in this very freeride-oriented town. First introduction to the trail is a 6-foot drop at the top, dubbed 'The Cherry Bomb'.",
         "difficulty": "4",
         "composition": [
             "Dirt",
@@ -161,7 +161,7 @@
     },
     {
         "trailName": "Crown Point",
-        "description": "",
+        "description": "One of the older and most iconic trails in the Rossland area, Crown Point offers a long, feature-packed descent from the furthest point in the Malde Creek trail network. Divided into three sections, the first section crosses back and forth over a clearcut section of woods, offering some incredible views of the town and the Rossland range beyond. The second section drops below the forest canopy as riders descend down a technical ridgeline with a stream on either side of them. The final section includes some steeper, loose descents, with jumps and high-speed flow connecting it all together. All three sections contain some old-school wooden skinnies and drops, making it a challenging and scenic ride for advanced riders.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -180,7 +180,7 @@
     },
     {
         "trailName": "Snake",
-        "description": "",
+        "description": "A steep, technical trail, Snake switchbacks down from the summit of Monte Christo. Plenty of rough, rocky, tight corners and some tricky wooden features.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -199,7 +199,7 @@
     },
     {
         "trailName": "Techno Grind",
-        "description": "",
+        "description": "A popular cross-country classic in Rossland, Techno Grind wraps around the northern side of Monte Christo and offers some faster loamy sections, rocks slabs, technical rooty areas, and some punchy uphill.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -216,7 +216,7 @@
     },
     {
         "trailName": "Stardust",
-        "description": "",
+        "description": "Stardust is one of the newer trails in the KC/Monte Christo trail network, and it offers a fun and flowy ride for intermediate riders looking to connect multiple trails in the area. The trail connects Techno Grind to Milky Way, and features loamy, low-angle singletrack with a few more pedally sections to keep things interesting. The trail is not overly technical, but there are some small rock features and roots to keep riders on their toes.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -235,7 +235,7 @@
     },
     {
         "trailName": "Yellow Submarine",
-        "description": "",
+        "description": "Despite Yellow Sub's relatively short length, this trail packs a lot of punch. Easily deserving of its double black rating, few are able to compete with its high-consequence rock features, and there is no turning back in the lower half.",
         "difficulty": "4",
         "composition": [
             "Dirt",
@@ -254,7 +254,7 @@
     },
     {
         "trailName": "Ziggy's",
-        "description": "",
+        "description": "Ziggy's connects Full Monte to Techno Grind and includes some relatively challenging rock and wooden features despite its fairly short length. It offers an optional early exit from Full Monte for those who want to head back to trails closer to Rossland.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -274,7 +274,7 @@
     },
     {
         "trailName": "Full Monte",
-        "description": "",
+        "description": "One of the older trails in the KC/Monte Christo trail network, Full Monte is a technical and challenging cross-country trail packed with natural and man-made features, including old-school skinnies and tight, rocky corners.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -294,7 +294,7 @@
     },
     {
         "trailName": "Eddie J",
-        "description": "",
+        "description": "Often used as a climbing trail to access the KC/Monte Christo network, Eddie J is a well-loved year-round favorite among both mountain bikers and fat bikers in the winter. Coming from the direction of Centennial and Red Mountain, the climb starts at a meandering pace through the section of woods below the Monte Christo Forest Service Road and then gets more challenging as the trail switchbacks to the top of the ridge. The descent is fast and flowy, with a couple of more technical corners. The trail can also be ridden in reverse for a more challenging climb.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -311,7 +311,7 @@
     },
     {
         "trailName": "Kootenay Columbia",
-        "description": "",
+        "description": "KC is a very popular mixed-use trail that summits Kootenay Columbia Mountain. It is wide and well-maintained, but mountain bikers should be on the lookout and give way to hikers and other traffic, especially on the descent. The trail connects to almost all of the trails on KC Mountain, so it is often used as access for further riding or an easy out-and-back to the viewpoint at the summit.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -327,7 +327,7 @@
     },
     {
         "trailName": "Iron Colt",
-        "description": "",
+        "description": "Mostly used as a hiking trail up from Iron Colt Ave, it can also be a shorter alternate route down to the east side of town. The trail also has a small skills park with some beginner to intermediate wooden jumps and drops.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -346,7 +346,7 @@
     },
     {
         "trailName": "North Star",
-        "description": "",
+        "description": "A fast and flowy doubletrack connector from the saddle between KC and Monte Christo to either Iron Colt or Milky Way. It can also be used as a climbing trail to access the KC Trail, although there are many better options. The trail is often covered in bracken and deadfall due to lack of use.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -362,7 +362,7 @@
     },
     {
         "trailName": "Pale Ale",
-        "description": "",
+        "description": "Pale Ale is a steep, fall-line trail down from the summit of KC. The upper section starts with a short technical climb, followed by a fast jump into a steep rock face. The lower section drops straight down the north face of KC and connects into the upper portion of Milky Way. It features a fast, rooty, loamy, and surfy descent, with a couple of interesting features.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -381,7 +381,7 @@
     },
     {
         "trailName": "Coffee Run",
-        "description": "",
+        "description": "A less ridden connector from Full Monte to Milky Way, this is an old-school, chundery trail with a couple of big rock rolls.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -398,7 +398,7 @@
     },
     {
         "trailName": "Green Door",
-        "description": "",
+        "description": "Green Door can be accessed from the Old Mining School or by continuing on after riding Milky Way, and takes you all the way down to Warfield. The trail has some high-speed straights, followed by a short climb up to the ridgeline. The lower portion is mostly fast flow, with quite a few tight switchbacks, some of them exposed and technical. It was one of the earlier trails to open in Rossland due to the lower elevation and lighter tree coverage but can quickly become worn and dusty for the same reasons.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -416,7 +416,7 @@
     },
     {
         "trailName": "KC Ridge",
-        "description": "",
+        "description": "KC Ridge starts with a few very technical, exposed corners from the summit of KC but quickly opens up into some fast straights with some wooden booters.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -435,7 +435,7 @@
     },
     {
         "trailName": "Milky Way",
-        "description": "",
+        "description": "A Rossland favourite, Milky Way offers fast, satisfying flow with a wide range of features at varying degrees of difficulty. It includes some very challenging optional rock features for advanced riders, while intermediate riders will also have plenty of fun on some wooden drops and rock rolls. The trail can get worn due to high traffic in hotter periods of the year.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -454,7 +454,7 @@
     },
     {
         "trailName": "Roger's",
-        "description": "",
+        "description": "A short cross-country connector between Green Door and Cemetery, Roger's contains some techy, rocky sections with a nice view of the valley.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -469,7 +469,7 @@
     },
     {
         "trailName": "Cemetery",
-        "description": "",
+        "description": "Cemetery often opens earlier in the season due to the southern aspect and offers a perfect warm-up lap for intermediate riders. It is mostly smooth and flowy, and can be exited early to climb back up and out of Happy Valley or continued on down across the highway to use the Wagon Road to climb back into Rossland.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -486,7 +486,7 @@
     },
     {
         "trailName": "Happy Valley",
-        "description": "",
+        "description": "Smooth singletrack climb back from the midway point of Cemetery up into town from Happy Valley. Often susceptible to water damage.",
         "difficulty": "1",
         "composition": [
             "Dirt",
@@ -501,7 +501,7 @@
     },
     {
         "trailName": "Spring Cleaning",
-        "description": "",
+        "description": "Rosslanders dig out the snow from Spring Cleaning after every winter, which is where the trail gets its name, and as such it is usually the first trail to open in town. The upper section features a couple of very steep, exposed rocky chutes that require commitment before winding down through several technical rock gardens and crossing the highway. The lower half also contains some very challenging moves down rock faces but has a more distinct feel and flow than the upper section. After a wooden drop and a final rocky section, riders can either ride the Wagon Road back up to town or take the trail down to Warfield to shuttle back up.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -521,7 +521,7 @@
     },
     {
         "trailName": "COG",
-        "description": "",
+        "description": "A newly-built climbing trail runs from the bottom of Monticola to the top of the Neptune Creek trail network. The trail starts off as challenging, technical singletrack but becomes very groomed and machine-built after crossing the Gibbard's FSR. It sets a reasonable grade back up to the highway through beautiful scenery, crossing several bridges in the process.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -538,7 +538,7 @@
     },
     {
         "trailName": "Larch Ridge",
-        "description": "",
+        "description": "Used as a connecting trail to either BS or Monticola, Large Ridge starts at the main Neptune Creek parking lot and connects some initial flowy descent with a cross-country climb ending at a viewpoint over the valley. Several technical rock features are dispersed throughout the trail until it winds up to the top of Monticola. It is often a preferred climb during the summer months due to cooler temperatures at higher elevations.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -555,7 +555,7 @@
     },
     {
         "trailName": "Monticola",
-        "description": "",
+        "description": "A local favorite, Monticola deserves its acclaim as a polished, fast-flowing trail through some pristine woods. Very accessible for intermediate riders, advanced riders similarly love this trail for the sheer speed attainable on it and the level of polish and care put into maintaining it. It's loamy, grippy, and has plenty of pumpable terrain to boost you through the scrub.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -572,7 +572,7 @@
     },
     {
         "trailName": "BS",
-        "description": "",
+        "description": "BS is a fast descent off of Larch Ridge for the intermediate to advanced rider. The trail begins with a section of criss-crossed optional lines with jumps and transitions, with a few interesting wooden features further down. Finally, after a steeper section, the trail loop-de-loops back over itself and connects to the lower portion of Monticola. Steeper and rougher than Monticola, BS can become more challenging in the steeper sections during drier months.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -591,7 +591,7 @@
     },
     {
         "trailName": "Mxiɬp Xewílh (Cedar Trail)",
-        "description": "",
+        "description": "Part of an ongoing project to connect Rossland to the Nancy Greene Summit and Seven Summits Trail beyond, Cedar Trail is a machine and hand built flowy climbing trail through some of the area's most stunning old growth cedar forest. The trail displays some incredible local craftmanship both in the trail building and wood sculpting featured on the trail, and is named in recognition of the traditional Sinixt caretakers of the land.",
         "difficulty": "1",
         "composition": [
             "Dirt",
@@ -606,7 +606,7 @@
     },
     {
         "trailName": "Drifter",
-        "description": "",
+        "description": "Considered one of the easiest trails in the Rossland area, Drifter follows beside Centennial trail and can be used as an an access to the lower portion of Eddie J, or to connect to the lower Red Mountain trail network. It is often used as a beginner's first introduction to trail riding.",
         "difficulty": "1",
         "composition": [
             "Dirt",
@@ -622,7 +622,7 @@
     },
     {
         "trailName": "Moe's",
-        "description": "",
+        "description": "The lowest elevation of the trails on Red Mountain, Moes alternates between single and doubletrack and has some mellow climbs and descents throughout. It is a popular mixed-use trail, and riders should give way to other traffic.",
         "difficulty": "1",
         "composition": [
             "Dirt",
@@ -637,7 +637,7 @@
     },
     {
         "trailName": "Miners",
-        "description": "",
+        "description": "Miner's is a popular way to gain access to the trails that lead to the top of Red Mountain, often from Larry's. It is a relatvely straightforward, sometimes challenging ascent, but with minimal technicality, and features simple but steep doubletrack for a good portion of the way. The viewpont on the ridge is a worthwhile stop along the way.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -653,7 +653,7 @@
     },
     {
         "trailName": "Larry's",
-        "description": "",
+        "description": "Larry's is a meandering trail often used to climb from Moe's to higher elevation trails on Red. It initially makes some switchbacks next to historic mineshafts before leveling out somewhat and connecting several other Red Mountain trails. Typically loamy and shaded, but moderately trafficked.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -669,7 +669,7 @@
     },
     {
         "trailName": "Blue Elephant",
-        "description": "",
+        "description": "A very popular two-way trail, Blue Elephant offers an interesting singletrack option for commuting to the ski hill in both the summer and winter when it is often groomed for fat biking. It establishes a relatively manageable grade in each direction and is commonly used by hikers, new mountain bikers, and locals in search of huckleberries when they're in season. The Red Mountain end of the trail often takes longer to dry out due to the aspect and shade.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -687,7 +687,7 @@
     },
     {
         "trailName": "Redtop",
-        "description": "",
+        "description": "As the name implies, Red Top is the climbing trail to access the summit of Red Mountain. After a sheltered, twisting climb from the old road behind the ski resort, the upper section follows an open ski run up the side of the mountain with plenty of technical switchbacks until reaching Poochy's Cabin. Then, after admiring the view, the rider can either choose to return back down the same way or head to Readhead or even Dreadhead for a significantly more challenging descent.",
         "difficulty": "2",
         "composition": [
             "Dirt",
@@ -703,7 +703,7 @@
     },
     {
         "trailName": "Redhead",
-        "description": "",
+        "description": "An advanced-level option for descending down from the summit of Red Mountain, the first section of upper Redhead features breathtaking views of the valley below, with fast, exposed singletrack in between technical switchbacks. As the trail drops further between the trees, the trail gets more technical with rougher, rooty sections, wooden drops and skinnies, and tricky rock features.",
         "difficulty": "3",
         "composition": [
             "Dirt",
@@ -723,7 +723,7 @@
     },
     {
         "trailName": "Dreadhead",
-        "description": "",
+        "description": "Dreadhead is a decommissioned, expert-level downhill race trail from the top of Red Mountain. It consists of a very steep, exposed, loose descent with fast straights, tight corners, and mandatory drops and features. Large portions of the trail are no-fall zones with very high consequences, and the trail is often in a state of disrepair due to lack of use.",
         "difficulty": "4",
         "composition": [
             "Dirt",
