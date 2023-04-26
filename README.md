@@ -65,7 +65,7 @@ An example trail object is as follows:
 
     {
         "trailName": "Columbia Trail",
-        "description": "",
+        "description": "The Columbia Trail provides excellent early-season cross-country riding along the banks of the Columbia River. As part of the Trans-Canada Trail, it is an old and raw trail that can be sandy in places, and includes a few creek crossings with some exposure to the river.",
         "difficulty": "1",
         "composition": [
             "Dirt",
