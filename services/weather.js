@@ -5,6 +5,7 @@ export default function weatherDataCall (location) {
         .then((response) => response.json())
         .then((weatherData) => {
             console.log(weatherData)
+            return weatherData;
         })
 
     // This needs to be expanded as more locations are added
