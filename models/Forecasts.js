@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const ForecastsSchema = new Schema ({
+    trailName: {
+        type: String,
+        required: true
+    },
     starRating: {
         type: Number,
         required: true
