@@ -31,7 +31,7 @@ const OPEN_AI_KEY = process.env.OPEN_AI_KEY
 // });
 
 
-const retrieveWeather = async () => {
+async function retrieveWeather () {
     const weather = { trail: [] , rossland: [] , castlegar: [] }
 
     for (const key in weather) {
