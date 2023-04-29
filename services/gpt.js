@@ -39,8 +39,8 @@ const retrieveWeather = async () => {
         .then(data => formatWeatherData(data))
         .then(data => weather[key] = data)
     }
-
-    console.log(weather)
+    console.log(weather);
+    return weather;
 }
 
 
@@ -50,13 +50,15 @@ function formatWeatherData(data) {
   
     for (let i = 0; i < daysCount; i++) {
       result.push({
-        time: data.daily.time[i],
-        temperature_2m_max: data.daily.temperature_2m_max[i],
-        temperature_2m_min: data.daily.temperature_2m_min[i],
-        rain_sum: data.daily.rain_sum[i],
-        snowfall_sum: data.daily.snowfall_sum[i]
+        date: data.daily.time[i],
+        max_temperature: data.daily.temperature_2m_max[i],
+        min_temperature: data.daily.temperature_2m_min[i],
+        total_rainfail: data.daily.rain_sum[i],
+        total_snowfall: data.daily.snowfall_sum[i]
       });
     }
   
     return result;
 }
+
+retrieveWeather()
