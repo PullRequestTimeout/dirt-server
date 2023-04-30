@@ -1,22 +1,30 @@
+// Dependencies
 import cron from "node-cron";
-import fetch from "node-fetch";
 import Trails from "../models/Trails.js";
 import weatherDataCall from "./weather.js";
 import dotenv from "dotenv";
 dotenv.config();
+import { Configuration, OpenAIApi } from "openai";
 
+// Environment variables
 const MONGO_TRAILS = process.env.MONGO_TRAILS
 const MONGO_FORECASTS = process.env.MONGO_FORECASTS
 const OPEN_AI_KEY = process.env.OPEN_AI_KEY
 
-// Just for testing, remove after
+// Just for testing, can probably remove after
 import mongoose from "mongoose";
+
+// OpenAI 
+const configuration = new Configuration({
+    apiKey: OPEN_AI_KEY,
+});
+const openai = new OpenAIApi(configuration);
 
 // Cron job every day at 3am contains...
 // (cron job can be wrapped around function last)
     // Fetch recent weather data and massage it into a useful object for OpenAI api to consume. ✅
 
-    // Fetch the three trail collections and store each of them in a variable, which will be JSON array, make an array of the three arrays
+    // Fetch the three trail collections and store each of them in a variable, which will be JSON array, make an array of the three arrays✅
     // Iterate through each object in each array and do...
         // Another fetch request, which calls the OpenAI model with data points; 
             // trail object 
@@ -33,6 +41,25 @@ import mongoose from "mongoose";
 //     // your task code here
 // });
 
+async function callAI() {
+    try {
+        const completion = await openai.createCompletion({
+          model: "text-davinci-003",
+          prompt: `${trailForcastPrompt}}`, 
+          max_tokens: 100,
+          temperature: 0,
+    
+        });
+        console.log(completion.data.choices[0].text);
+    } catch (error) {
+        if (error.response) {
+          console.log(error.response.status);
+          console.log(error.response.data);
+        } else {
+          console.log(error.message);
+        }
+    }
+};
 
 async function retrieveWeather() {
     const weather = { trail: [] , rossland: [] , castlegar: [] }
@@ -67,7 +94,7 @@ function formatWeatherData(data) {
 // Fetch the three trail collections and store each of them in a variable, which will be JSON array, make an array of the three arrays
 // This wont work unless connected to the mongodb, make sure IP is whitelisted in mongo 'Network Access' tab
 
-mongoose.connect(MONGO_TRAILS).then(() => console.log("Trails database connected 👍"))
+// mongoose.connect(MONGO_TRAILS).then(() => console.log("Trails database connected 👍"))
 
 async function getTrailArrays() {
     const rosslandTrails = await Trails.RosslandDB.find();
@@ -78,8 +105,11 @@ async function getTrailArrays() {
 
     // This loop is the end goal, needs to iterate through each item and send it to gpt with the params
     trailArrays.forEach(array => {
-        array.forEach(item =>{
-            console.log("item:", item)
+        array.forEach((item, i) =>{
+            console.log(`${item.trailName}:`, i)
         })
     })
 }
+
+// await getTrailArrays()
+// mongoose.disconnect()
