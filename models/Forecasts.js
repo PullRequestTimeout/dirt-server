@@ -10,14 +10,14 @@ const ForecastsSchema = new Schema ({
         type: Number,
         required: true
     },
-    description: {
+    descriptiveForecast: {
         type: String,
         required: true
     }
 }, {collection: "forecast"});
 
-const TrailDB = mongoose.model("TrailDB", ForecastsSchema, "trail");
-const RosslandDB = mongoose.model("RosslandDB", ForecastsSchema, "rossland");
-const CastlegarDB = mongoose.model("CastlegarDB", ForecastsSchema, "castlegar");
+const TrailForecastsDB = mongoose.model("TrailForecastsDB", ForecastsSchema, "trail");
+const RosslandForecastsDB = mongoose.model("RosslandForecastsDB", ForecastsSchema, "rossland");
+const CastlegarForecastsDB = mongoose.model("CastlegarForecastsDB", ForecastsSchema, "castlegar");
 
-export default { TrailDB, RosslandDB, CastlegarDB };
+export default { TrailForecastsDB, RosslandForecastsDB, CastlegarForecastsDB };

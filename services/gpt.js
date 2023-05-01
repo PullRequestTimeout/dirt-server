@@ -1,6 +1,7 @@
 // Dependencies
 import cron from "node-cron";
 import Trails from "../models/Trails.js";
+import Forecasts from "../models/Forecasts.js";
 import weatherDataCall from "./weather.js";
 import dotenv from "dotenv";
 dotenv.config();
@@ -31,26 +32,23 @@ const openai = new OpenAIApi(configuration);
             // recent weather data for the relevent location
             // instruction for the model
 
-            // And then makes a new DB entry for each of the returned forecasts with 'trailName', 'starRating', and 'description'
+            // And then makes a new DB entry with the 'Forecasts' model for each of the returned forecasts with 'trailName', 'starRating', and 'description'
 
-
-// Pieces of the puzzle:
 
 // This will run the task at 3am every day
 // cron.schedule('0 3 * * *', () => {
 //     // your task code here
 // });
 
-async function callAI() {
+async function callAI(trailForcastPrompt) {
     try {
         const completion = await openai.createCompletion({
           model: "text-davinci-003",
           prompt: `${trailForcastPrompt}}`, 
           max_tokens: 100,
           temperature: 0,
-    
         });
-        console.log(completion.data.choices[0].text);
+        console.log(JSON.parse(completion.data.choices[0].text));
     } catch (error) {
         if (error.response) {
           console.log(error.response.status);
@@ -62,7 +60,7 @@ async function callAI() {
 };
 
 async function retrieveWeather() {
-    const weather = { trail: [] , rossland: [] , castlegar: [] }
+    const weather = { trail: [], rossland: [], castlegar: [] }
 
     for (const key in weather) {
         await weatherDataCall(key)
@@ -81,10 +79,10 @@ function formatWeatherData(data) {
     for (let i = 0; i < daysCount; i++) {
       result.push({
         date: data.daily.time[i],
-        max_temperature: data.daily.temperature_2m_max[i],
-        min_temperature: data.daily.temperature_2m_min[i],
-        total_rainfail: data.daily.rain_sum[i],
-        total_snowfall: data.daily.snowfall_sum[i]
+        max_temperature: Math.trunc(data.daily.temperature_2m_max[i]),
+        min_temperature: Math.trunc(data.daily.temperature_2m_min[i]),
+        total_rainfail: Math.trunc(data.daily.rain_sum[i]),
+        total_snowfall: Math.trunc(data.daily.snowfall_sum[i])
       });
     }
   
@@ -111,5 +109,22 @@ async function getTrailArrays() {
     })
 }
 
+// const aiPrompt = `The following list of JSON objects contains today's, and the previous 5 days worth of weather data for a mountainbiking destination:
+// ${}
+
+// The following object is a representation of a mountainbike trail at the destination, with relevant information and factors that contribute to expected conditions of the trail, as well as a description of the trail. The number in the difficulty field corresponds to the difficulty rating of the trail, 1 being green, 4 being double black:
+// ${}
+
+// Given this information, give a star rating as a single digit from 1 to 5 about today's expected conditions of the trail, 1 being unrideable and 5 being very good, and a descriptive forecast of the expected conditions of the trail today. 
+// Keep in mind that trails at 0-1000m elevation are typically snow covered from mid-October until late-April. Trails at 1500-2000m usually don't open till June at least, and close in early October. If there is snow on the trail they shouldn't receive a star rating greater than 2.
+// Limit your answer to only output the answer formatted in JSON in the following format, and limit the descriptiveForecast to less than 100 words, prioritising accuracy:
+// {
+//     "trailName": "",
+//     "starRating": "",
+//     "descriptiveForcast": ""
+// }`
+
 // await getTrailArrays()
 // mongoose.disconnect()
+
+callAI("Only reply in JSON format: How are you today?")
