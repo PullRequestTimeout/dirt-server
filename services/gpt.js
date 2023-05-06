@@ -26,8 +26,17 @@ const openai = new OpenAIApi(configuration);
 //     // your task code here
 // });
 
+// This is to sort the objects from the weather call and the trails object
+function sortObject(object) {
+  return Object.keys(object).sort().reduce((result, key) => {
+      result[key] = object[key];
+      return result;
+  }, {});
+}
+
 // Step 1
 // This currently returns an object 'weather', with each location being a key, and weather.location returning an array
+// weather object is sorted lexographically
 async function retrieveWeather() {
     const weather = { trail: [], rossland: [], castlegar: [] }
 
@@ -36,8 +45,8 @@ async function retrieveWeather() {
         .then(data => formatWeatherData(data))
         .then(data => weather[key] = data)
     }
-    // console.log(weather);
-    return weather;
+    const sortedWeather = sortObject(weather)
+    return sortedWeather;
 
     function formatWeatherData(data) {
         const result = [];
@@ -46,10 +55,10 @@ async function retrieveWeather() {
         for (let i = 0; i < daysCount; i++) {
           result.push({
             date: data.daily.time[i],
-            max_temperature: Math.trunc(data.daily.temperature_2m_max[i]),
-            min_temperature: Math.trunc(data.daily.temperature_2m_min[i]),
-            total_rainfail: Math.trunc(data.daily.rain_sum[i]),
-            total_snowfall: Math.trunc(data.daily.snowfall_sum[i])
+            max_temperature: Math.trunc(data.daily.temperature_2m_max[i]) + "°C",
+            min_temperature: Math.trunc(data.daily.temperature_2m_min[i]) + "°C",
+            total_rainfall: Math.trunc(data.daily.rain_sum[i]) + "mm",
+            total_snowfall: Math.trunc(data.daily.snowfall_sum[i]) + "cm"
           });
         }
       
@@ -58,7 +67,9 @@ async function retrieveWeather() {
 }
 
 // Step 2
-// This currently returns an array of all the location arrays
+// This returns an object containing locations, each location is an array containing objects of trails
+// Object is sorted lexographically for consistency
+// Call using const trails = await getTrailArrays(), trails.rossland for example
 async function getTrailArrays() {
     try {
         await mongoose.connect(MONGO_TRAILS).then(() => console.log("Trails database connected 👍"))
@@ -67,10 +78,10 @@ async function getTrailArrays() {
         const trailTrails = await Trails.TrailDB.find();
         const castlegarTrails = await Trails.CastlegarDB.find();
     
-        // Translate this to an object to use keys as identifier, { trail: trailTrails, rossland: rosslandTrails, castlegar: castlegarTrails }
-        const trailArrays = [rosslandTrails, trailTrails, castlegarTrails];
-        console.log(trailArrays)
-        return trailArrays;
+        const trailArrays = { trail: trailTrails, rossland: rosslandTrails, castlegar: castlegarTrails };
+        const sortedTrailArrays = sortObject(trailArrays)
+        // console.log(sortedTrailArrays)
+        return sortedTrailArrays;
     } catch (error) {
         if (error.response) {
             console.log(error.response.status);
@@ -107,65 +118,77 @@ async function callAI(trailForcastPrompt) {
     }
 };
 
-// async function createForecastDocuments(location) {
-//     const aiPrompt = `The following list of JSON objects contains today's, and the previous 5 days worth of weather data for a mountainbiking destination:
-//                     ${}
-
-//                     The following object is a representation of a mountainbike trail at the destination, with relevant information and factors that contribute to expected conditions of the trail, as well as a description of the trail. The number in the difficulty field corresponds to the difficulty rating of the trail, 1 being green, 4 being double black:
-//                     ${}
-
-//                     Given this information, give a star rating as a single digit from 1 to 5 about today's expected conditions of the trail, 1 being unrideable and 5 being very good, and a descriptive forecast of the expected conditions of the trail today. 
-//                     Keep in mind that trails at 0-1000m elevation are typically snow covered from mid-October until late-April. Trails at 1500-2000m usually don't open till June at least, and close in early October. If there is snow on the trail they shouldn't receive a star rating greater than 2.
-//                     Limit your answer to only output the answer formatted in JSON in the following format, and limit the descriptiveForecast to less than 100 words, prioritising accuracy:
-//                     {
-//                         "trailName": "",
-//                         "starRating": "",
-//                         "descriptiveForcast": ""
-//                     }`
+async function createForecastDocuments(aiPrompt, trailName) {
     
-//     const maxTries = 3;
-//     let currentTry = 0;
+    const maxTries = 3;
+    let currentTry = 0;
 
-//     if (/* document exists */) {
-//         while (currentTry < maxTries) {
-//             try {
-//                 // CallAi with the constructed prompt
-//                 await callAI(aiPrompt)
-//                 // Update the document
-//                 await Forecasts.RosslandForecastsDB.updateOne({/* Dynamic values of  */})
-//                 currentTry = 3;
-//             } catch (error) {
-//                 console.log(/* The error, plus the index or id of the document that caused the error */)
-//                 currentTry++;
-//             }
-//         }
-//     } else {
-//         while (currentTry < maxTries) {
-//             try {
-//                 // create a new document with the info
-//                 // console.log("New document created 👍") //This should really only run on the first ever forecast creation for each
-//             } catch (error) {
-//                 console.log(/* The error, plus the index or id of the document that caused the error */)
-//                 currentTry++;
-//             }
-//         }
-//     }
-// }
+    if (Forecasts.RosslandForecastsDB.find({trailName: trailName})) {
+        while (currentTry < maxTries) {
+            try {
+                // CallAi with the constructed prompt
+                const aiAnswer = await callAI(aiPrompt)
+                const aiAnswerJSON = JSON.parse(aiAnswer)
+                // Update the document
+                await Forecasts.RosslandForecastsDB.updateOne({/* Find corresponding forcast object and input aiAnswerJSON */})
+                break
+            } catch (error) {
+                console.log(/* The error, plus the index or id of the document that caused the error */)
+                currentTry++;
+            }
+        }
+    } else {
+        while (currentTry < maxTries) {
+            try {
+                // create a new document with the info
+                // console.log("New document created 👍") //This should really only run on the first ever forecast creation for each
+            } catch (error) {
+                console.log(/* The error, plus the index or id of the document that caused the error */)
+                currentTry++;
+            }
+        }
+    }
+}
 
-// mongoose.connect(MONGO_FORECASTS).then(() => console.log("Forecasts database connected 👍"))
+async function createAllForecasts() {
+  
+  const weather = await retrieveWeather()
+  const trails = await getTrailArrays()
 
-// This loop is the end goal, needs to iterate through each item and send it to gpt with the params
-    // trailArrays.forEach(array => {
-    //     array.forEach((item, i) =>{
-    //         console.log(`${item.trailName}:`, i)
-    //     })
-    // })
+  // mongoose.connect(MONGO_FORECASTS).then(() => console.log("Forecasts database connected 👍"))
+
+  for (const location in trails) {
+    let arr = trails[location]
+    arr.forEach(trail => {
+      let aiPrompt = `The following list of JSON objects contains today's, and the previous 5 days worth of weather data for a mountainbiking destination:
+                      ${JSON.stringify(weather[location])}
+
+                      The following object is a representation of a mountainbike trail at the destination, with relevant information and factors that contribute to expected conditions of the trail, as well as a description of the trail. The number in the difficulty field corresponds to the difficulty rating of the trail, 1 being green, 4 being double black:
+                      
+                      ${trail}
+
+                      Given this information, give a star rating as a single digit from 1 to 5 about today's expected conditions of the trail, 1 being unrideable and 5 being very good, and a descriptive forecast of the expected conditions of the trail today. 
+                      Keep in mind that trails at 0-1000m elevation are typically snow covered from mid-October until late-April. Trails at 1500-2000m usually don't open till June at least, and close in early October. If there is snow on the trail they shouldn't receive a star rating greater than 2.
+                      Limit your answer to only output the answer formatted in JSON in the following format, and limit the descriptiveForecast to less than 100 words, prioritising accuracy:
+                      {
+                          "trailName": "${trail.trailName}",
+                          "starRating": "",
+                          "descriptiveForcast": ""
+                      }`
+      // console.log("Prompt:", aiPrompt, "Trail name:", trail.trailName)
+      console.log(callAI(aiPrompt))
+      // createForecastDocuments(aiPrompt, trail.trailName)
+    })
+  }
+}
 
 
 
 // Testing-------------------------------------------------------------------
 
-await getTrailArrays()
+createAllForecasts()
+
+// getTrailArrays()
 // const weatherData = await retrieveWeather()
 // console.log(weatherData.trail)
 // mongoose.disconnect()
