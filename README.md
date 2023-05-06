@@ -86,4 +86,4 @@ An example trail object is as follows:
 
 **"starRating"** is the numeric value from 1 to 5 given to signify a simplified expected condition of the trail.
 
-**"description"** is a string containing a short paragraph description of the expected condition of the trail.
+**"descriptiveForecast"** is a string containing a short paragraph description of the expected condition of the trail.
