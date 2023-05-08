@@ -112,11 +112,13 @@ async function getTrailArrays() {
 async function callAI(trailForcastPrompt) {
     try {
         const completion = await openai.createCompletion({
+            // Comment in 3.5 when available and compare output
             model: "text-davinci-003",
+            // model: "gpt-3.5-turbo",
             prompt: `${trailForcastPrompt}}`,
             //   Adjust tokens to make sure full response is received
-            max_tokens: 100,
-            temperature: 0,
+            max_tokens: 150,
+            temperature: 0.5,
         })
         console.log(completion.data.choices[0].text)
         return completion.data.choices[0].text
@@ -130,23 +132,23 @@ async function callAI(trailForcastPrompt) {
     }
 }
 
-async function createForecastDocuments(aiPrompt, trailName) {
+async function createForecastDocuments(trailName, aiAnswer) {
     const maxTries = 3
     let currentTry = 0
 
     if (Forecasts.RosslandForecastsDB.find({ trailName: trailName })) {
         while (currentTry < maxTries) {
             try {
-                // CallAi with the constructed prompt
-                const aiAnswer = await callAI(aiPrompt)
-                const aiAnswerJSON = JSON.parse(aiAnswer)
                 // Update the document
                 await Forecasts.RosslandForecastsDB.updateOne({
-                    /* Find corresponding forcast object and input aiAnswerJSON */
+                    /* Find corresponding forcast object and input aiAnswer */
+                    aiAnswer,
                 })
                 break
             } catch (error) {
-                console.log(/* The error, plus the index or id of the document that caused the error */)
+                console.log(
+                    `${trailName} forecast wasn't written successfully to the database 😟`
+                )
                 currentTry++
             }
         }
@@ -171,29 +173,45 @@ async function createAllForecasts() {
 
     for (const location in trails) {
         let arr = trails[location]
-        arr.forEach((trail) => {
+        arr.forEach(async (trail) => {
             let aiPrompt = `The following list of JSON objects contains today's, and the previous 5 days worth of weather data for a mountainbiking destination:
-                      	${JSON.stringify(weather[location])}
+                            Today: ${JSON.stringify(weather[location][5])}
+                            Yesterday: ${JSON.stringify(weather[location][4])}
+                            2 days ago: ${JSON.stringify(weather[location][3])}
+                            3 days ago: ${JSON.stringify(weather[location][2])}
+                            4 days ago: ${JSON.stringify(weather[location][1])}
+                            5 days ago: ${JSON.stringify(weather[location][0])}
 
-						The following object is a representation of a mountainbike trail at the destination, with relevant information and factors that contribute to expected conditions of the trail, as well as a description of the trail. The number in the difficulty field corresponds to the difficulty rating of the trail, 1 being green, 4 being double black:
-						
-						${trail}
+                            The following object is a representation of a mountainbike trail at the destination, with relevant information and factors that contribute to expected conditions of the trail, as well as a description of the trail. The number in the difficulty field corresponds to the difficulty rating of the trail, 1 being green, 4 being double black:
 
-						Given this information, give a star rating as a single digit from 1 to 5 about today's expected conditions of the trail, 1 being unrideable and 5 being very good, and a descriptive forecast of the expected conditions of the trail today. 
-						Keep in mind that trails at 0-1000m elevation are typically snow covered from mid-October until late-April. Trails at 1500-2000m usually don't open till June at least, and close in early October. If there is snow on the trail they shouldn't receive a star rating greater than 2.
-						Your answer MUST only output the answer in the following JSON format, all values must be a string, and limit the descriptiveForecast to less than 100 words, prioritising accuracy:
-						{
-							"trailName": "${trail.trailName}",
-							"starRating": "",
-							"descriptiveForcast": ""
-						}`
-            // console.log("Prompt:", aiPrompt, "Trail name:", trail.trailName)
-            console.log(callAI(aiPrompt))
+                            ${trail}
+
+                            Given this information, give a star rating as a single digit from 1 to 5 about today's expected conditions of the trail, 1 being unrideable and 5 being very good, and a descriptive forecast of the expected conditions of the trail today. 
+                            Keep in mind that trails at 0-1000m elevation are typically snow covered from mid-October until late-April. Trails at 1500-2000m usually don't open till June at least, and close in early October. If there is snow on the trail it shouldn't receive a star rating greater than 1, and if there has been rain in the last 2 days the rating shouldn't be higher than 3.
+                            Your answer MUST only output the answer in the following JSON format, all values must be a string with double quotation marks, and limit the descriptiveForecast to around 50 words, prioritising describing interactivity with the recent rain:
+                            {
+                                "trailName": "${trail.trailName}",
+                                "starRating": "",
+                                "descriptiveForcast": ""
+                            }`
+            // Regex removes the code indentation from the string
+            let cleanedPrompt = aiPrompt.replace(/(?<=\n)\s+/g, "")
+            // console.log("Prompt:", cleanedPrompt)
+
+            let aiAnswer = await callAI(cleanedPrompt)
+            let jsonAnswer = await JSON.parse(aiAnswer)
+            console.log(jsonAnswer)
             // createForecastDocuments(aiPrompt, trail.trailName)
         })
+        break
     }
 }
 
 // Testing-------------------------------------------------------------------
 
 createAllForecasts()
+// const weather = await retrieveWeather()
+// console.log(weather.trail[5])
+
+// Regex to match the JSON AI answer
+// ^\s*\{[\s\S]*"\S+":\s*("[^"\\]*(\\.[^"\\]*)*"|true|false|null|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?|\[\s*\s*(?:,\s*\s*)*\])\s*\}\s*$
