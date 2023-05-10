@@ -108,6 +108,142 @@ async function getTrailArrays() {
     }
 }
 
+// This function inputs the trails object, loops through each trail in each location,
+// and builds a string out of the data to better prompt the AI model
+async function trailObjectsToString() {
+    const trails = await getTrailArrays()
+    const trailObjectsArr = []
+
+    for (const location in trails) {
+        let arr = trails[location]
+        arr.forEach((trail) => {
+            const trailString = `This trail is called ${
+                trail.trailName
+            }. It is rated as ${trailDifficulty(
+                trail.difficulty
+            )} difficulty, and the terrain is composed of ${trailComposition(
+                trail.composition
+            )}. The trail has a ${trail.weatherReactivity.toLowerCase()} reactivity to weather events, which means it will be ${weatherReactivity(
+                trail.weatherReactivity
+            )}. The trail sees a ${trail.traffic.toLowerCase()} amount of traffic over the course of the season, so it will likely be ${trafficFrequency(
+                trail.traffic
+            )}. The trails highest point sits at ${
+                trail.elevation
+            }m, which means that the trail ${elevationVariance(
+                parseInt(trail.elevation)
+            )}. ${trail.trailName} lies primarily on the ${
+                trail.aspect
+            } aspect of the mountain, which means the trail ${aspect(
+                trail.aspect
+            )}. The trail has ${
+                trail.treeCoverage
+            } tree coverage and shading which can mean that the trail ${treeCoverage(
+                trail.treeCoverage
+            )}.
+            `
+
+            // For each trail, push object with trailName and trailString to array
+
+            console.log(trailString)
+        })
+
+        // This is only target Trail's trails for a reduced data size while building, needs to be dynamic when complete
+
+        function treeCoverage(cov) {
+            switch (cov) {
+                case "Low":
+                    return "opens earlier in the season and receives more benefit from rain during hot, dry periods of the year, but also drys out quicker afterwards"
+                case "Moderate":
+                    return "can have sections of varied coverage, with a mixed impact on the trail"
+                case "High":
+                    return "opens later in the season, and remains wetter for longer after rain events, and can also remain cooler during hotter periods"
+            }
+        }
+
+        // Inputs one of four aspect strings "North" | "East" | "South" | "West", and outputs how that can impact the trail conditions
+        function aspect(asp) {
+            switch (asp) {
+                case "North":
+                    return "often receives more shade, remains muddy for longer after rain events, but won't be as dusty after periods of high heat"
+                case "East":
+                    return "receives more sun in the morning, so will dry out quicker if the weather in the morning is clear, or vice versa"
+                case "South":
+                    return "often gets more sun and opens earlier in the season, dries out faster after rain, but becomes dusty after periods of high heat"
+                case "West":
+                    return "receives more sun in the afternoon, so will dry out slower if the weather in the morning is clear, or vice versa"
+            }
+        }
+
+        function elevationVariance(elev) {
+            if (elev <= 500) {
+                return "is likely open for a lot of the year, is likely completely clear of snow from March till December, but is more affected by heat in the hotter months of the year"
+            } else if (elev > 500 && elev <= 1000) {
+                return "is likely open from March until November, will receive more rain than snow in the winter, but will likely be dusty earlier in the year"
+            } else if (elev > 1000 && elev <= 1500) {
+                return "might not open until May or June and can close in November if there is any measurable amount of snowfall, it will likely be in better shape than lower elevation trails during hotter months of the year"
+            } else if (elev > 1500) {
+                return "isn't open until at least July and closes as early as October, but likely won't get very dusty at all at high elevation, and there is a chance of snow any time of the year"
+            }
+        }
+
+        // Inputs a string "Low" | "Moderate" | "High", and outputs reasoning for rating
+        function trafficFrequency(freq) {
+            switch (freq) {
+                case "Low":
+                    return "in better shape than other trails in the area after recent adverse weather events"
+                case "Moderate":
+                    return "in variable conditions, depending on the recent traffic intensity"
+                case "High":
+                    return "dusty after periods of high heat and low rainfall, and rutted or rough after periods of rain and low temperatures"
+            }
+        }
+
+        // Inputs a string "Low" | "Moderate" | "High", and outputs reasoning for rating
+        function weatherReactivity(react) {
+            switch (react) {
+                case "Low":
+                    return "not be challenging to ride after varying weather conditions"
+                case "Moderate":
+                    return "difficult to ride only if the recent weather events have been more intense"
+                case "High":
+                    return "challenging to ride if the conditions are anything less than ideal"
+            }
+        }
+
+        // Converts composition array of strings to natural language
+        function trailComposition(comp) {
+            let compString = ""
+            comp.forEach((item, index) => {
+                if (index === comp.length - 2) {
+                    compString += `${item.toLowerCase()}, and `
+                } else if (index === comp.length - 1) {
+                    compString += item.toLowerCase()
+                } else {
+                    compString += `${item.toLowerCase()}, `
+                }
+            })
+            return compString
+        }
+
+        function trailDifficulty(x) {
+            switch (x) {
+                case 1:
+                case "1":
+                    return "green"
+                case 2:
+                case "2":
+                    return "blue"
+                case 3:
+                case "4":
+                    return "black"
+                case 4:
+                case "4":
+                    return "double black"
+            }
+        }
+    }
+}
+
 // Input template literal string with AI prompt, returns the GPT response
 async function callAI(trailForcastPrompt) {
     try {
@@ -132,6 +268,8 @@ async function callAI(trailForcastPrompt) {
     }
 }
 
+// createForecastDocuments will eventually look for document by name in the DB,
+// and either create a new or update the current forecast object. Work in Progress still.
 async function createForecastDocuments(trailName, aiAnswer) {
     const maxTries = 3
     let currentTry = 0
@@ -203,13 +341,15 @@ async function createAllForecasts() {
             console.log(jsonAnswer)
             // createForecastDocuments(aiPrompt, trail.trailName)
         })
+        // Break statement restrict function to castlegar data to avoid wasting money on OpenAI API during testing
         break
     }
 }
 
 // Testing-------------------------------------------------------------------
 
-createAllForecasts()
+trailObjectsToString()
+// createAllForecasts()
 // const weather = await retrieveWeather()
 // console.log(weather.trail[5])
 
