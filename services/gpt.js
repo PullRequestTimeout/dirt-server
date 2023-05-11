@@ -110,6 +110,10 @@ async function getTrailArrays() {
 
 // This function inputs the trails object, loops through each trail in each location,
 // and builds a string out of the data to better prompt the AI model
+
+// This is the solution to one of two options; either custom build the prompt every time in a natural language snippet like this,
+// or use a model with a training data set supplied. This is the simpler, more time efficient option, but depends how the output is
+// both options will be tested, and maybe some combination of both is the best approach.
 async function trailObjectsToString() {
     const trails = await getTrailArrays()
     const trailObjectsArr = []
@@ -143,70 +147,23 @@ async function trailObjectsToString() {
             `
 
             // For each trail, push object with trailName and trailString to array
-
             console.log(trailString)
         })
 
-        // This is only target Trail's trails for a reduced data size while building, needs to be dynamic when complete
-
-        function treeCoverage(cov) {
-            switch (cov) {
-                case "Low":
-                    return "opens earlier in the season and receives more benefit from rain during hot, dry periods of the year, but also drys out quicker afterwards"
-                case "Moderate":
-                    return "can have sections of varied coverage, with a mixed impact on the trail"
-                case "High":
-                    return "opens later in the season, and remains wetter for longer after rain events, and can also remain cooler during hotter periods"
-            }
-        }
-
-        // Inputs one of four aspect strings "North" | "East" | "South" | "West", and outputs how that can impact the trail conditions
-        function aspect(asp) {
-            switch (asp) {
-                case "North":
-                    return "often receives more shade, remains muddy for longer after rain events, but won't be as dusty after periods of high heat"
-                case "East":
-                    return "receives more sun in the morning, so will dry out quicker if the weather in the morning is clear, or vice versa"
-                case "South":
-                    return "often gets more sun and opens earlier in the season, dries out faster after rain, but becomes dusty after periods of high heat"
-                case "West":
-                    return "receives more sun in the afternoon, so will dry out slower if the weather in the morning is clear, or vice versa"
-            }
-        }
-
-        function elevationVariance(elev) {
-            if (elev <= 500) {
-                return "is likely open for a lot of the year, is likely completely clear of snow from March till December, but is more affected by heat in the hotter months of the year"
-            } else if (elev > 500 && elev <= 1000) {
-                return "is likely open from March until November, will receive more rain than snow in the winter, but will likely be dusty earlier in the year"
-            } else if (elev > 1000 && elev <= 1500) {
-                return "might not open until May or June and can close in November if there is any measurable amount of snowfall, it will likely be in better shape than lower elevation trails during hotter months of the year"
-            } else if (elev > 1500) {
-                return "isn't open until at least July and closes as early as October, but likely won't get very dusty at all at high elevation, and there is a chance of snow any time of the year"
-            }
-        }
-
-        // Inputs a string "Low" | "Moderate" | "High", and outputs reasoning for rating
-        function trafficFrequency(freq) {
-            switch (freq) {
-                case "Low":
-                    return "in better shape than other trails in the area after recent adverse weather events"
-                case "Moderate":
-                    return "in variable conditions, depending on the recent traffic intensity"
-                case "High":
-                    return "dusty after periods of high heat and low rainfall, and rutted or rough after periods of rain and low temperatures"
-            }
-        }
-
-        // Inputs a string "Low" | "Moderate" | "High", and outputs reasoning for rating
-        function weatherReactivity(react) {
-            switch (react) {
-                case "Low":
-                    return "not be challenging to ride after varying weather conditions"
-                case "Moderate":
-                    return "difficult to ride only if the recent weather events have been more intense"
-                case "High":
-                    return "challenging to ride if the conditions are anything less than ideal"
+        function trailDifficulty(x) {
+            switch (x) {
+                case 1:
+                case "1":
+                    return "green"
+                case 2:
+                case "2":
+                    return "blue"
+                case 3:
+                case "4":
+                    return "black"
+                case 4:
+                case "4":
+                    return "double black"
             }
         }
 
@@ -225,20 +182,64 @@ async function trailObjectsToString() {
             return compString
         }
 
-        function trailDifficulty(x) {
-            switch (x) {
-                case 1:
-                case "1":
-                    return "green"
-                case 2:
-                case "2":
-                    return "blue"
-                case 3:
-                case "4":
-                    return "black"
-                case 4:
-                case "4":
-                    return "double black"
+        // Inputs a string "Low" | "Moderate" | "High", and outputs reasoning for rating
+        function weatherReactivity(react) {
+            switch (react) {
+                case "Low":
+                    return "not be challenging to ride after varying weather conditions"
+                case "Moderate":
+                    return "difficult to ride only if the recent weather events have been more intense"
+                case "High":
+                    return "challenging to ride if the conditions are anything less than ideal"
+            }
+        }
+
+        // Inputs a string "Low" | "Moderate" | "High", and outputs reasoning for rating
+        function trafficFrequency(freq) {
+            switch (freq) {
+                case "Low":
+                    return "in better shape than other trails in the area after recent adverse weather events"
+                case "Moderate":
+                    return "in variable conditions, depending on the recent traffic intensity"
+                case "High":
+                    return "dusty after periods of high heat and low rainfall, and rutted or rough after periods of rain and low temperatures"
+            }
+        }
+
+        // Self explanatory, but value ranges and prompt strings might need fine tuning
+        function elevationVariance(elev) {
+            if (elev <= 500) {
+                return "is likely open for a lot of the year, is likely completely clear of snow from March till December, but is more affected by heat in the hotter months of the year"
+            } else if (elev > 500 && elev <= 1000) {
+                return "is likely open from March until November, will receive more rain than snow in the winter, but will likely be dusty earlier in the year"
+            } else if (elev > 1000 && elev <= 1500) {
+                return "might not open until May or June and can close in November if there is any measurable amount of snowfall, it will likely be in better shape than lower elevation trails during hotter months of the year"
+            } else if (elev > 1500) {
+                return "isn't open until at least July and closes as early as October, but likely won't get very dusty at all at high elevation, and there is a chance of snow any time of the year"
+            }
+        }
+        // Inputs one of four aspect strings "North" | "East" | "South" | "West", and outputs how that can impact the trail conditions
+        function aspect(asp) {
+            switch (asp) {
+                case "North":
+                    return "often receives more shade, remains muddy for longer after rain events, but won't be as dusty after periods of high heat"
+                case "East":
+                    return "receives more sun in the morning, so will dry out quicker if the weather in the morning is clear, or vice versa"
+                case "South":
+                    return "often gets more sun and opens earlier in the season, dries out faster after rain, but becomes dusty after periods of high heat"
+                case "West":
+                    return "receives more sun in the afternoon, so will dry out slower if the weather in the morning is clear, or vice versa"
+            }
+        }
+
+        function treeCoverage(cov) {
+            switch (cov) {
+                case "Low":
+                    return "opens earlier in the season and receives more benefit from rain during hot, dry periods of the year, but also drys out quicker afterwards"
+                case "Moderate":
+                    return "can have sections of varied coverage, with a mixed impact on the trail"
+                case "High":
+                    return "opens later in the season, and remains wetter for longer after rain events, and can also remain cooler during hotter periods"
             }
         }
     }
@@ -268,20 +269,26 @@ async function callAI(trailForcastPrompt) {
     }
 }
 
-// createForecastDocuments will eventually look for document by name in the DB,
-// and either create a new or update the current forecast object. Work in Progress still.
-async function createForecastDocuments(trailName, aiAnswer) {
+// createForecastDocuments looks for document by trailName in the DB, and either create a new or updates the current forecast object
+// trailName and location are boths strings, but aiAnswer needs to be an object with the values "descriptiveForcast" and "starRating"
+async function createForecastDocuments(trailName, aiAnswer, location) {
     const maxTries = 3
     let currentTry = 0
 
-    if (Forecasts.RosslandForecastsDB.find({ trailName: trailName })) {
+    // This currently only targets Rossland, DB collection needs to be made dynamic
+    if (locationDB(location).find({ trailName: trailName })) {
         while (currentTry < maxTries) {
             try {
                 // Update the document
-                await Forecasts.RosslandForecastsDB.updateOne({
-                    /* Find corresponding forcast object and input aiAnswer */
-                    aiAnswer,
-                })
+                await locationDB(location).updateOne(
+                    { trailName: trailName },
+                    {
+                        $set: {
+                            descriptiveForcast: aiAnswer.descriptiveForcast,
+                            starRating: aiAnswer.starRating,
+                        },
+                    }
+                )
                 break
             } catch (error) {
                 console.log(
@@ -294,11 +301,29 @@ async function createForecastDocuments(trailName, aiAnswer) {
         while (currentTry < maxTries) {
             try {
                 // create a new document with the info
-                // console.log("New document created 👍") //This should really only run on the first ever forecast creation for each
+                await locationDB(location).create({
+                    trailName: trailName,
+                    starRating: aiAnswer.starRating,
+                    descriptiveForcast: aiAnswer.descriptiveForcast,
+                })
+                console.log("New document created 👍") //This should really only run on the first ever forecast creation for each
             } catch (error) {
-                console.log(/* The error, plus the index or id of the document that caused the error */)
+                console.log(
+                    `${trailName} wasn't written correctly to DB due to ${error}`
+                )
                 currentTry++
             }
+        }
+    }
+
+    function locationDB(location) {
+        switch (location) {
+            case "rossland":
+                return Forecasts.RosslandForecastsDB
+            case "trail":
+                return Forecasts.TrailForecastsDB
+            case "castlegar":
+                return Forecasts.CastlegarForecastsDB
         }
     }
 }
