@@ -36,7 +36,6 @@ function sortObject(object) {
         }, {})
 }
 
-// Step 1
 // This currently returns an object 'weather', with each location being a key, and weather.location returning an array
 // weather object is sorted lexographically
 async function retrieveWeather() {
@@ -70,7 +69,6 @@ async function retrieveWeather() {
     }
 }
 
-// Step 2
 // This returns an object containing locations, each location is an array containing objects of trails
 // Object is sorted lexographically for consistency
 // Call using const trails = await getTrailArrays(), trails.rossland for example
@@ -116,10 +114,15 @@ async function getTrailArrays() {
 // both options will be tested, and maybe some combination of both is the best approach.
 async function trailObjectsToString() {
     const trails = await getTrailArrays()
-    const trailObjectsArr = []
+    const trailObj = {
+        castlegar: [],
+        rossland: [],
+        trail: [],
+    }
 
     for (const location in trails) {
         let arr = trails[location]
+
         arr.forEach((trail) => {
             const trailString = `This trail is called ${
                 trail.trailName
@@ -135,19 +138,19 @@ async function trailObjectsToString() {
                 trail.elevation
             }m, which means that the trail ${elevationVariance(
                 parseInt(trail.elevation)
-            )}. ${trail.trailName} lies primarily on the ${
+            )}. ${
+                trail.trailName
+            } lies primarily on the ${trail.aspect.toLowerCase()} aspect of the mountain, which means the trail ${aspect(
                 trail.aspect
-            } aspect of the mountain, which means the trail ${aspect(
-                trail.aspect
-            )}. The trail has ${
+            )}. The trail has ${trail.treeCoverage.toLowerCase()} tree coverage and shading which can mean that the trail ${treeCoverage(
                 trail.treeCoverage
-            } tree coverage and shading which can mean that the trail ${treeCoverage(
-                trail.treeCoverage
-            )}.
-            `
+            )}.`
 
-            // For each trail, push object with trailName and trailString to array
-            console.log(trailString)
+            trailObj[location].push({
+                trailName: trail.trailName,
+                trailString: trailString,
+                description: trail.description,
+            })
         })
 
         function trailDifficulty(x) {
@@ -243,6 +246,8 @@ async function trailObjectsToString() {
             }
         }
     }
+    const sortedTrailObj = sortObject(trailObj)
+    return sortedTrailObj
 }
 
 // Input template literal string with AI prompt, returns the GPT response
@@ -257,7 +262,7 @@ async function callAI(trailForcastPrompt) {
             max_tokens: 150,
             temperature: 0.5,
         })
-        console.log(completion.data.choices[0].text)
+        // console.log(completion.data.choices[0].text)
         return completion.data.choices[0].text
     } catch (error) {
         if (error.response) {
@@ -276,7 +281,7 @@ async function createForecastDocuments(trailName, aiAnswer, location) {
     let currentTry = 0
 
     // This currently only targets Rossland, DB collection needs to be made dynamic
-    if (locationDB(location).find({ trailName: trailName })) {
+    if (await locationDB(location).find({ trailName: trailName })) {
         while (currentTry < maxTries) {
             try {
                 // Update the document
@@ -307,6 +312,7 @@ async function createForecastDocuments(trailName, aiAnswer, location) {
                     descriptiveForcast: aiAnswer.descriptiveForcast,
                 })
                 console.log("New document created 👍") //This should really only run on the first ever forecast creation for each
+                break
             } catch (error) {
                 console.log(
                     `${trailName} wasn't written correctly to DB due to ${error}`
@@ -330,7 +336,7 @@ async function createForecastDocuments(trailName, aiAnswer, location) {
 
 async function createAllForecasts() {
     const weather = await retrieveWeather()
-    const trails = await getTrailArrays()
+    const trails = await trailObjectsToString()
 
     // mongoose.connect(MONGO_FORECASTS).then(() => console.log("Forecasts database connected 👍"))
 
@@ -345,13 +351,15 @@ async function createAllForecasts() {
                             4 days ago: ${JSON.stringify(weather[location][1])}
                             5 days ago: ${JSON.stringify(weather[location][0])}
 
-                            The following object is a representation of a mountainbike trail at the destination, with relevant information and factors that contribute to expected conditions of the trail, as well as a description of the trail. The number in the difficulty field corresponds to the difficulty rating of the trail, 1 being green, 4 being double black:
+                            Here are the characteristics of the trail:
+                            ${trail.trailString}
 
-                            ${trail}
+                            And a brief description:
+                            ${trail.description}
 
                             Given this information, give a star rating as a single digit from 1 to 5 about today's expected conditions of the trail, 1 being unrideable and 5 being very good, and a descriptive forecast of the expected conditions of the trail today. 
-                            Keep in mind that trails at 0-1000m elevation are typically snow covered from mid-October until late-April. Trails at 1500-2000m usually don't open till June at least, and close in early October. If there is snow on the trail it shouldn't receive a star rating greater than 1, and if there has been rain in the last 2 days the rating shouldn't be higher than 3.
-                            Your answer MUST only output the answer in the following JSON format, all values must be a string with double quotation marks, and limit the descriptiveForecast to around 50 words, prioritising describing interactivity with the recent rain:
+                            
+                            Your answer MUST only output the answer in the following JSON format, all values must be a string with double quotation marks, and limit the descriptiveForecast to around 50 words, prioritising describing interactivity with the recent weather:
                             {
                                 "trailName": "${trail.trailName}",
                                 "starRating": "",
@@ -359,12 +367,11 @@ async function createAllForecasts() {
                             }`
             // Regex removes the code indentation from the string
             let cleanedPrompt = aiPrompt.replace(/(?<=\n)\s+/g, "")
-            // console.log("Prompt:", cleanedPrompt)
 
             let aiAnswer = await callAI(cleanedPrompt)
-            let jsonAnswer = await JSON.parse(aiAnswer)
+            let jsonAnswer = await JSON.parse(aiAnswer.trim())
             console.log(jsonAnswer)
-            // createForecastDocuments(aiPrompt, trail.trailName)
+            // createForecastDocuments(trail.trailName, aiAnswer, location)
         })
         // Break statement restrict function to castlegar data to avoid wasting money on OpenAI API during testing
         break
@@ -373,10 +380,4 @@ async function createAllForecasts() {
 
 // Testing-------------------------------------------------------------------
 
-trailObjectsToString()
-// createAllForecasts()
-// const weather = await retrieveWeather()
-// console.log(weather.trail[5])
-
-// Regex to match the JSON AI answer
-// ^\s*\{[\s\S]*"\S+":\s*("[^"\\]*(\\.[^"\\]*)*"|true|false|null|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?|\[\s*\s*(?:,\s*\s*)*\])\s*\}\s*$
+createAllForecasts()
