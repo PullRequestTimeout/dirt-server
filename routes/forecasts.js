@@ -1,6 +1,6 @@
-import express from "express";
-const router = express.Router();
-import weatherDataCall from "../services/weather.js";
+import express from "express"
+const router = express.Router()
+import weatherDataCall from "../services/weather.js"
 
 router.get("/", async (req, res) => {
     const location = req.query.location
@@ -16,4 +16,4 @@ router.get("/", async (req, res) => {
     }
 })
 
-export default router;
+export default router
