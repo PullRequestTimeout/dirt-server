@@ -12,12 +12,7 @@ router.get("/", (req, res) => {
     if (!req.query.location) {
         console.log("You must include a location parameter to update db.")
     } else {
-        json = JSON.parse(
-            fs.readFileSync(
-                `./trails/${req.query.location}-trails.json`,
-                "utf-8"
-            )
-        )
+        json = JSON.parse(fs.readFileSync(`./trails/${req.query.location}-trails.json`, "utf-8"))
     }
 
     switch (req.query.location) {

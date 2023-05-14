@@ -2,9 +2,7 @@ import fetch from "node-fetch"
 
 export default async function weatherDataCall(location) {
     const response = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${
-            locationCoords(location).lat
-        }&longitude=${
+        `https://api.open-meteo.com/v1/forecast?latitude=${locationCoords(location).lat}&longitude=${
             locationCoords(location).long
         }&daily=temperature_2m_max,temperature_2m_min,rain_sum,snowfall_sum&past_days=5&forecast_days=1&timezone=America%2FLos_Angeles`
     )
