@@ -5,40 +5,29 @@ import Forecasts from "../models/Forecasts.js"
 import dotenv from "dotenv"
 dotenv.config()
 
-// env variable
+// Forecasts database
 const MONGO_FORECASTS = process.env.MONGO_FORECASTS
 
-router.get("/rossland", async (req, res) => {
+router.get("/:location", async (req, res) => {
     await mongoose.connect(MONGO_FORECASTS)
     try {
-        const rosslandForecasts = await Forecasts.RosslandForecastsDB.find()
-        res.json(rosslandForecasts)
+        const forecasts = await locationDB(req.params.location).find()
+        res.json(forecasts)
     } catch (error) {
         res.json({ message: error })
     }
     await mongoose.disconnect()
 })
 
-router.get("/trail", async (req, res) => {
-    await mongoose.connect(MONGO_FORECASTS)
-    try {
-        const trailForecasts = await Forecasts.TrailForecastsDB.find()
-        res.json(trailForecasts)
-    } catch (error) {
-        res.json({ message: error })
+function locationDB(location) {
+    switch (location.toLowerCase()) {
+        case "rossland":
+            return Forecasts.RosslandForecastsDB
+        case "trail":
+            return Forecasts.TrailForecastsDB
+        case "castlegar":
+            return Forecasts.CastlegarForecastsDB
     }
-    await mongoose.disconnect()
-})
-
-router.get("/castlegar", async (req, res) => {
-    await mongoose.connect(MONGO_FORECASTS)
-    try {
-        const castlegarForecasts = await Forecasts.CastlegarForecastsDB.find()
-        res.json(castlegarForecasts)
-    } catch (error) {
-        res.json({ message: error })
-    }
-    await mongoose.disconnect()
-})
+}
 
 export default router
