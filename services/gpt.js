@@ -67,7 +67,7 @@ async function retrieveWeather() {
 // Call using const trails = await getTrailArrays(), trails.rossland for example
 async function getTrailArrays() {
     try {
-        await mongoose.connect(MONGO_TRAILS).then(() => console.log("Trails database connected 👍"))
+        await mongoose.connect(MONGO_TRAILS).then(() => console.log("Trails database connected."))
 
         const rosslandTrails = await Trails.RosslandDB.find()
         const trailTrails = await Trails.TrailDB.find()
@@ -91,7 +91,7 @@ async function getTrailArrays() {
             console.log(error)
         }
     } finally {
-        await mongoose.disconnect().then(console.log("Trails database disconnected 👍"))
+        await mongoose.disconnect().then(console.log("Trails database disconnected."))
     }
 }
 
@@ -292,7 +292,7 @@ async function createForecastDocuments(trailName, aiAnswer, location) {
                     starRating: aiAnswer.starRating,
                     descriptiveForecast: aiAnswer.descriptiveForecast,
                 })
-                console.log("New document created 👍") //This should really only run on the first ever forecast creation for each
+                console.log("New document created.") //This should really only run on the first ever forecast creation for each
                 break
             } catch (error) {
                 console.log(`${trailName} wasn't written correctly to DB due to ${error}`)
@@ -317,7 +317,7 @@ async function createForecasts() {
     const weather = await retrieveWeather()
     const trails = await trailObjectsToString()
 
-    await mongoose.connect(MONGO_FORECASTS).then(() => console.log("Forecasts database connected 👍"))
+    await mongoose.connect(MONGO_FORECASTS).then(() => console.log("Forecasts database connected."))
 
     for (const location in trails) {
         let arr = trails[location]
@@ -352,9 +352,9 @@ async function createForecasts() {
 
             await createForecastDocuments(trail.trailName, jsonAnswer, location)
         })
-        // Break statement restrict function to castlegar data to avoid wasting money on OpenAI API during testing
-        break
     }
+
+    await mongoose.disconnect().then(() => console.log("Forecasts database disconnected."))
 }
 
 // Testing-------------------------------------------------------------------
@@ -365,4 +365,4 @@ async function createForecasts() {
 //     createForecasts()
 // });
 
-createForecasts().then(mongoose.disconnect())
+createForecasts()
