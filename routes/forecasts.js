@@ -1,18 +1,31 @@
 import express from "express"
 const router = express.Router()
-import weatherDataCall from "../services/weather.js"
+import Forecasts from "../models/Forecasts.js"
 
-router.get("/", async (req, res) => {
-    const location = req.query.location
-    if (!location) {
-        return res.status(400).json({ error: "Location parameter is missing" })
-    }
+router.get("/rossland", async (req, res) => {
     try {
-        const weatherData = await weatherDataCall(location)
-        return res.json(weatherData)
-    } catch (err) {
-        console.error(err)
-        return res.status(500).json({ error: "Internal server error" })
+        const rosslandForecasts = await Forecasts.RosslandForecastsDB.find()
+        res.json(rosslandForecasts)
+    } catch (error) {
+        res.json({ message: error })
+    }
+})
+
+router.get("/trail", async (req, res) => {
+    try {
+        const trailForecasts = await Forecasts.TrailForecastsDB.find()
+        res.json(trailForecasts)
+    } catch (error) {
+        res.json({ message: error })
+    }
+})
+
+router.get("/castlegar", async (req, res) => {
+    try {
+        const castlegarForecasts = await Forecasts.CastlegarForecastsDB.find()
+        res.json(castlegarForecasts)
+    } catch (error) {
+        res.json({ message: error })
     }
 })
 
