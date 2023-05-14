@@ -21,11 +21,6 @@ const configuration = new Configuration({
 })
 const openai = new OpenAIApi(configuration)
 
-// This will run the task at 3am every day
-// cron.schedule('0 3 * * *', () => {
-//     // your task code here
-// });
-
 // This is to sort the objects from the weather call and the trails object
 function sortObject(object) {
     return Object.keys(object)
@@ -56,10 +51,8 @@ async function retrieveWeather() {
         for (let i = 0; i < daysCount; i++) {
             result.push({
                 date: data.daily.time[i],
-                max_temperature:
-                    Math.trunc(data.daily.temperature_2m_max[i]) + "°C",
-                min_temperature:
-                    Math.trunc(data.daily.temperature_2m_min[i]) + "°C",
+                max_temperature: Math.trunc(data.daily.temperature_2m_max[i]) + "°C",
+                min_temperature: Math.trunc(data.daily.temperature_2m_min[i]) + "°C",
                 total_rainfall: Math.trunc(data.daily.rain_sum[i]) + "mm",
                 total_snowfall: Math.trunc(data.daily.snowfall_sum[i]) + "cm",
             })
@@ -74,9 +67,7 @@ async function retrieveWeather() {
 // Call using const trails = await getTrailArrays(), trails.rossland for example
 async function getTrailArrays() {
     try {
-        await mongoose
-            .connect(MONGO_TRAILS)
-            .then(() => console.log("Trails database connected 👍"))
+        await mongoose.connect(MONGO_TRAILS).then(() => console.log("Trails database connected 👍"))
 
         const rosslandTrails = await Trails.RosslandDB.find()
         const trailTrails = await Trails.TrailDB.find()
@@ -100,9 +91,7 @@ async function getTrailArrays() {
             console.log(error)
         }
     } finally {
-        await mongoose
-            .disconnect()
-            .then(console.log("Trails database disconnected 👍"))
+        await mongoose.disconnect().then(console.log("Trails database disconnected 👍"))
     }
 }
 
@@ -124,9 +113,7 @@ async function trailObjectsToString() {
         let arr = trails[location]
 
         arr.forEach((trail) => {
-            const trailString = `This trail is called ${
-                trail.trailName
-            }. It is rated as ${trailDifficulty(
+            const trailString = `This trail is called ${trail.trailName}. It is rated as ${trailDifficulty(
                 trail.difficulty
             )} difficulty, and the terrain is composed of ${trailComposition(
                 trail.composition
@@ -134,11 +121,7 @@ async function trailObjectsToString() {
                 trail.weatherReactivity
             )}. The trail sees a ${trail.traffic.toLowerCase()} amount of traffic over the course of the season, so it will likely be ${trafficFrequency(
                 trail.traffic
-            )}. The trails highest point sits at ${
-                trail.elevation
-            }m, which means that the trail ${elevationVariance(
-                parseInt(trail.elevation)
-            )}. ${
+            )}. The trails highest point sits at ${trail.elevation}m, which means that the trail ${elevationVariance(parseInt(trail.elevation))}. ${
                 trail.trailName
             } lies primarily on the ${trail.aspect.toLowerCase()} aspect of the mountain, which means the trail ${aspect(
                 trail.aspect
@@ -274,56 +257,54 @@ async function callAI(trailForcastPrompt) {
     }
 }
 
+// This is the final piece and still doesn't work just yet
+
 // createForecastDocuments looks for document by trailName in the DB, and either create a new or updates the current forecast object
-// trailName and location are boths strings, but aiAnswer needs to be an object with the values "descriptiveForcast" and "starRating"
+// trailName is a string, aiAnswer needs to be an object with the values "descriptiveForecast" and "starRating",
+// and location is the key passed down from the object the trail is coming from
 async function createForecastDocuments(trailName, aiAnswer, location) {
     const maxTries = 3
     let currentTry = 0
 
-    // This currently only targets Rossland, DB collection needs to be made dynamic
-    if (await locationDB(location).find({ trailName: trailName })) {
+    await mongoose.connect(MONGO_FORECASTS).then(() => console.log("Forecasts database connected 👍"))
+
+    if (await locationDB(location).exists({ trailName: trailName })) {
+        console.log("Document exists.")
+
         while (currentTry < maxTries) {
             try {
-                // Update the document
-                await locationDB(location).updateOne(
-                    { trailName: trailName },
-                    {
-                        $set: {
-                            descriptiveForcast: aiAnswer.descriptiveForcast,
-                            starRating: aiAnswer.starRating,
-                        },
-                    }
-                )
+                const trailDoc = await locationDB(location).findOne({ trailName: trailName })
+                trailDoc.starRating = aiAnswer.starRating
+                trailDoc.descriptiveForecast = aiAnswer.descriptiveForecast
+                await trailDoc.save()
                 break
             } catch (error) {
-                console.log(
-                    `${trailName} forecast wasn't written successfully to the database 😟`
-                )
+                console.log(`${trailName} forecast wasn't written because of ${error}`)
                 currentTry++
             }
         }
     } else {
+        console.log("Document doesnt exist.")
+
         while (currentTry < maxTries) {
             try {
                 // create a new document with the info
-                await locationDB(location).create({
+                await Forecasts.TrailForecastsDB.create({
                     trailName: trailName,
                     starRating: aiAnswer.starRating,
-                    descriptiveForcast: aiAnswer.descriptiveForcast,
+                    descriptiveForecast: aiAnswer.descriptiveForecast,
                 })
                 console.log("New document created 👍") //This should really only run on the first ever forecast creation for each
                 break
             } catch (error) {
-                console.log(
-                    `${trailName} wasn't written correctly to DB due to ${error}`
-                )
+                console.log(`${trailName} wasn't written correctly to DB due to ${error}`)
                 currentTry++
             }
         }
     }
 
     function locationDB(location) {
-        switch (location) {
+        switch (location.toLowerCase()) {
             case "rossland":
                 return Forecasts.RosslandForecastsDB
             case "trail":
@@ -334,11 +315,11 @@ async function createForecastDocuments(trailName, aiAnswer, location) {
     }
 }
 
-async function createAllForecasts() {
+async function createForecasts() {
     const weather = await retrieveWeather()
     const trails = await trailObjectsToString()
 
-    // mongoose.connect(MONGO_FORECASTS).then(() => console.log("Forecasts database connected 👍"))
+    await mongoose.connect(MONGO_FORECASTS).then(() => console.log("Forecasts database connected 👍"))
 
     for (const location in trails) {
         let arr = trails[location]
@@ -363,15 +344,15 @@ async function createAllForecasts() {
                             {
                                 "trailName": "${trail.trailName}",
                                 "starRating": "",
-                                "descriptiveForcast": ""
+                                "descriptiveForecast": ""
                             }`
             // Regex removes the code indentation from the string
             let cleanedPrompt = aiPrompt.replace(/(?<=\n)\s+/g, "")
 
             let aiAnswer = await callAI(cleanedPrompt)
             let jsonAnswer = await JSON.parse(aiAnswer.trim())
-            console.log(jsonAnswer)
-            // createForecastDocuments(trail.trailName, aiAnswer, location)
+            // console.log(jsonAnswer)
+            await createForecastDocuments(trail.trailName, jsonAnswer, location)
         })
         // Break statement restrict function to castlegar data to avoid wasting money on OpenAI API during testing
         break
@@ -380,4 +361,17 @@ async function createAllForecasts() {
 
 // Testing-------------------------------------------------------------------
 
-createAllForecasts()
+// This will run the task at 3am every day
+// cron.schedule('0 3 * * *', () => {
+//     createForecasts()
+// });
+
+// createForecasts().then(mongoose.disconnect())
+
+const dummyData = {
+    trailName: "Aspen Loop",
+    starRating: "4",
+    descriptiveForecast: "It's gonna be heaps tops eh",
+}
+
+createForecastDocuments("Aspen Loop", dummyData, "trail")
