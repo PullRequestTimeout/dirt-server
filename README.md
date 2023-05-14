@@ -6,7 +6,7 @@ Two main tasks are performed by the server:
 
 1. Once daily, the server makes a series of calls to a weather API, one for each trail network location with data in the database. In the first version of the app this includes Rossland, Trail, and Castlegar in British Columbia. Each of the returned weather data objects are stored, then the server iterates through each of the three collections of trail data providing key influencing points, and makes calls to OpenAI's GPT API using the weather data as a system parameter for the model, with the intent of receiving back both a star rating and a short description of the expected conditions of the trail. This is then passed back into the database and used in the API's second function.
 
-2. The API offers an endpoint for each of the locations covered by the database, and these endpoints return two JSON objects; the first containing all the static trail data that is also used by the first function, and the second containing the AI generated forecast data. This can then be consumed by the client, the Dirt Surfer react app, to be displayed in customisable ways for the user.
+2. The API offers two endpoints for each of the locations covered by the database; one provides the static trail models, available at /trails/[location], and the other provides the daily AI generated forecast data, available at /forecasts/[location]. These endpoints return JSON objects described below. They can then be consumed by the client, the Dirt Surfer react app, to be displayed in customisable ways for the user. Currently the API is only available for Rossland, Trail, and Castlegar.
 
 ## Trail Data
 
@@ -94,3 +94,15 @@ Forecast data is accessable via routing endpoints. Client can call /forecasts/[l
 **"starRating"** is the numeric value from 1 to 5 given to signify a simplified expected condition of the trail.
 
 **"descriptiveForecast"** is a string containing a short paragraph description of the expected condition of the trail.
+
+An example forecast object is as follows:
+
+    {
+        "trailName": "Crown Point",
+        "starRating": 5,
+        "descriptiveForecast": "Today's conditions are expected to be ideal for riding. The moderate tree coverage and shading will offer some respite from the 23°C maximum temperature, and the lack of rain and snowfall will mean that the trail will be in great shape. The trail will be challenging and technical with plenty of drops, jumps, and wooden features to enjoy."
+    }
+
+## Note
+
+All JSON objects returned by the API also include **"\_\_id"** and **"\_\_v"** keys from the MongoDB documents, but they aren't relevant to the function of the client-side app.
