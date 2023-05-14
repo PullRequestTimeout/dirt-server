@@ -242,11 +242,11 @@ async function callAI(trailForcastPrompt) {
             // model: "gpt-3.5-turbo",
             prompt: `${trailForcastPrompt}}`,
             //   Adjust tokens to make sure full response is received
-            max_tokens: 150,
+            max_tokens: 200,
             temperature: 0.5,
         })
         // console.log(completion.data.choices[0].text)
-        return completion.data.choices[0].text
+        return completion.data.choices[0].text.trim()
     } catch (error) {
         if (error.response) {
             console.log(error.response.status)
@@ -265,8 +265,6 @@ async function callAI(trailForcastPrompt) {
 async function createForecastDocuments(trailName, aiAnswer, location) {
     const maxTries = 3
     let currentTry = 0
-
-    await mongoose.connect(MONGO_FORECASTS).then(() => console.log("Forecasts database connected 👍"))
 
     if (await locationDB(location).exists({ trailName: trailName })) {
         console.log("Document exists.")
@@ -289,7 +287,7 @@ async function createForecastDocuments(trailName, aiAnswer, location) {
         while (currentTry < maxTries) {
             try {
                 // create a new document with the info
-                await Forecasts.TrailForecastsDB.create({
+                await locationDB(location).create({
                     trailName: trailName,
                     starRating: aiAnswer.starRating,
                     descriptiveForecast: aiAnswer.descriptiveForecast,
@@ -338,20 +336,20 @@ async function createForecasts() {
                             And a brief description:
                             ${trail.description}
 
-                            Given this information, give a star rating as a single digit from 1 to 5 about today's expected conditions of the trail, 1 being unrideable and 5 being very good, and a descriptive forecast of the expected conditions of the trail today. 
-                            
-                            Your answer MUST only output the answer in the following JSON format, all values must be a string with double quotation marks, and limit the descriptiveForecast to around 50 words, prioritising describing interactivity with the recent weather:
+                            Given this information, give a star rating as a single digit from 1 to 5 about today's expected conditions of the trail, 1 being unrideable and 5 being very good, and a descriptive forecast of the expected conditions of the trail today.
+
+                            Your answer MUST only output the answer in the following valid JSON format, all values must be a string with double quotation marks, and limit the descriptiveForecast to around 50 words, prioritising describing interactivity with the recent weather:
                             {
                                 "trailName": "${trail.trailName}",
                                 "starRating": "",
                                 "descriptiveForecast": ""
-                            }`
+                            }
+                            `
             // Regex removes the code indentation from the string
             let cleanedPrompt = aiPrompt.replace(/(?<=\n)\s+/g, "")
-
             let aiAnswer = await callAI(cleanedPrompt)
-            let jsonAnswer = await JSON.parse(aiAnswer.trim())
-            // console.log(jsonAnswer)
+            let jsonAnswer = JSON.parse(aiAnswer)
+
             await createForecastDocuments(trail.trailName, jsonAnswer, location)
         })
         // Break statement restrict function to castlegar data to avoid wasting money on OpenAI API during testing
@@ -361,17 +359,10 @@ async function createForecasts() {
 
 // Testing-------------------------------------------------------------------
 
-// This will run the task at 3am every day
+// This will run the task at 3am every day, should only be started when app is live to save money
+
 // cron.schedule('0 3 * * *', () => {
 //     createForecasts()
 // });
 
-// createForecasts().then(mongoose.disconnect())
-
-const dummyData = {
-    trailName: "Aspen Loop",
-    starRating: "4",
-    descriptiveForecast: "It's gonna be heaps tops eh",
-}
-
-createForecastDocuments("Aspen Loop", dummyData, "trail")
+createForecasts().then(mongoose.disconnect())
